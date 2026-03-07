@@ -6,8 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Pangolin_Introduction.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2f281c1652b2f47db9dc06c1b60990ee, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: dda387c09f08e4501b2b8af8b663d2c7, type: 2}
   m_UseUCBPForAssetBundles: 0
