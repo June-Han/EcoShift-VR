@@ -43,12 +43,19 @@ public class PersistentXROrigin : MonoBehaviour
     {
         // Look for the object tagged "Respawn"
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+        CharacterController cc = GetComponent<CharacterController>();
 
         if (spawnPoint != null)
         {
+            // Find the player's physical body and temporarily disable it
+            if (cc != null) cc.enabled = false;
+            
             // Teleport the XR Origin to the spawn point's exact location and rotation
             transform.position = spawnPoint.transform.position;
             transform.rotation = spawnPoint.transform.rotation;
+
+            //Turn the physical body back on
+            if (cc != null) cc.enabled = true;
         }
         else
         {
