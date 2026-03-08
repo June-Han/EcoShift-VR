@@ -27,7 +27,7 @@ public class HandSwapper : MonoBehaviour
         rightController.SetActive(false);
         
         leftFinPrefab.SetActive(false);
-        rightFinPrefab.SetActive(true);
+        rightFinPrefab.SetActive(false);
     }
 
     // Call this function for Marine to swap handles

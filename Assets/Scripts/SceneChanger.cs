@@ -3,6 +3,13 @@ using UnityEngine.SceneManagement; // Required for loading scenes
 
 public class SceneChanger : MonoBehaviour
 {
+    [Header("Physics & Audio")]
+    public CharacterController playerBody;
+    public AudioSource playerAudio;
+
+    [Header("Movement Scripts")]
+    public Behaviour[] movementScripts;
+
     // Function for the Terrestrial Scene
     public void LoadTerrestrialScene()
     {
@@ -11,6 +18,7 @@ public class SceneChanger : MonoBehaviour
         //Transform player into a Pangolin!
         FindFirstObjectByType<HandSwapper>().EquipPaws();
 
+        WakeUpGameplaySystems();
         WakeUpInputs();
     }
 
@@ -23,6 +31,21 @@ public class SceneChanger : MonoBehaviour
         FindFirstObjectByType<HandSwapper>().EquipFins();
         
         WakeUpInputs();
+    }
+
+    void WakeUpGameplaySystems()
+    {
+        // Turn on gravity and collisions
+        if (playerBody != null) playerBody.enabled = true;
+        
+        // Turn on the audio system
+        if (playerAudio != null) playerAudio.enabled = true;
+
+        // Turn on all the movement and footstep scripts!
+        foreach (Behaviour script in movementScripts)
+        {
+            if (script != null) script.enabled = true;
+        }
     }
 
     void WakeUpInputs()
