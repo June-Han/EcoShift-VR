@@ -20,7 +20,10 @@ public class SceneChanger : MonoBehaviour
         //Transform player into a Pangolin!
         FindFirstObjectByType<HandSwapper>().EquipPaws();
 
+        FindFirstObjectByType<SwimMotion>().isActive = false;
+
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
+
         //For controller mapping resets
         WakeUpInputs();
     }
@@ -32,6 +35,8 @@ public class SceneChanger : MonoBehaviour
 
         //Transform player into a Shark!
         FindFirstObjectByType<HandSwapper>().EquipFins();
+
+        FindFirstObjectByType<SwimMotion>().isActive = true;
         
         WakeUpGameplaySystems(false, MarineXRCameraOffset);
         WakeUpInputs();
