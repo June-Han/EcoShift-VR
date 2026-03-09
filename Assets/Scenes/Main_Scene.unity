@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogColor: {r: 0.6627451, g: 0.7803922, b: 0.7254902, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.08
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.47058827, g: 0.59607846, b: 0.7019608, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1433095499}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1719,7 +1719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &562453391
 Transform:
   m_ObjectHideFlags: 0
@@ -1814,7 +1814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &647283802
 Transform:
   m_ObjectHideFlags: 0
@@ -2739,6 +2739,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PangolinPaw
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6a98cc599833541b54089120539b46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2753,6 +2757,68 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d6a98cc599833541b54089120539b46, type: 3}
   m_PrefabInstance: {fileID: 1537192140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1561891808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2047889998}
+    m_Modifications:
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440476660054940829, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+      propertyPath: m_Name
+      value: marine_clownfish
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+--- !u!4 &1561891809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4669005887754503719, guid: 7c609d199e833e64e80264c75b43688d, type: 3}
+  m_PrefabInstance: {fileID: 1561891808}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1593960613
 GameObject:
@@ -2988,6 +3054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PangolinPaw
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d6a98cc599833541b54089120539b46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3027,15 +3097,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4604972887363670765, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4604972887363670765, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4604972887363670765, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4604972887363670765, guid: 89c7d56787878bd45a97b081a69b5b43, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4205,6 +4275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1561891809}
   - {fileID: 1639802010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

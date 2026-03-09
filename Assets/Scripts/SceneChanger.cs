@@ -10,11 +10,13 @@ public class SceneChanger : MonoBehaviour
 
     [Header("XR Origin")]
     public float TerrestrialXRCameraOffset = 0.30f;
-    public float MarineXRCameraOffset = 1.00f;
+    public float MarineXRCameraOffset = 0.40f;
 
     // Function for the Terrestrial Scene
     public void LoadTerrestrialScene()
     {
+        //FindAnyObjectByType<VRFader>().FadeOutToNewScene();
+
         SceneManager.LoadScene("Pangolin_FoodSearch"); 
 
         //Transform player into a Pangolin!
@@ -31,6 +33,8 @@ public class SceneChanger : MonoBehaviour
     // Function for the Marine Scene
     public void LoadMarineScene()
     {
+        //FindAnyObjectByType<VRFader>().FadeOutToNewScene();
+        
         SceneManager.LoadScene("Shark_FoodSearch"); 
 
         //Transform player into a Shark!
