@@ -10,7 +10,7 @@ public class SceneChanger : MonoBehaviour
 
     [Header("XR Origin")]
     public float TerrestrialXRCameraOffset = 0.30f;
-    public float MarineXRCameraOffset = 0.40f;
+    public float MarineXRCameraOffset = 0.50f;
 
     // Function for the Terrestrial Scene
     public void LoadTerrestrialScene()

@@ -55,7 +55,11 @@ public class PersistentXROrigin : MonoBehaviour
             transform.rotation = spawnPoint.transform.rotation;
 
             //Turn the physical body back on
-            if (cc != null) cc.enabled = true;
+            if (cc != null) 
+            {
+                cc.enabled = true;
+                cc.Move(Vector3.down * 0.01f); // Wake up physics engine
+            }
         }
         else
         {
