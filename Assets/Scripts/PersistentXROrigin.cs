@@ -43,10 +43,10 @@ public class PersistentXROrigin : MonoBehaviour
     {
         // Look for the object tagged "Respawn"
         GameObject spawnPoint = GameObject.FindGameObjectWithTag("Respawn");
-        CharacterController cc = GetComponent<CharacterController>();
-
+        
         if (spawnPoint != null)
         {
+            CharacterController cc = GetComponent<CharacterController>();
             // Find the player's physical body and temporarily disable it
             if (cc != null) cc.enabled = false;
             
