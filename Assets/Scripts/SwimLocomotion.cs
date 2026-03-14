@@ -5,12 +5,39 @@ public class SwimLocomotion : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float swimSpeed = 3f;
+    public float sprintMultiplier = 1.8f;
     public float verticalBoost = 1.5f;
+
+    [Header("Water Physics")]
+    [Tooltip("How quickly the player builds up to full speed (like pushing through water)")]
+    public float acceleration = 2.5f;
+    [Tooltip("How quickly the player glides to a stop (water drag)")]
+    public float drag = 1.8f;
+    [Tooltip("Minimum speed before snapping to zero (prevents endless micro-drift)")]
+    public float stopThreshold = 0.01f;
+
+    [Header("Swimming Feel")]
+    [Tooltip("Subtle speed oscillation that mimics a swim stroke rhythm")]
+    public float strokePulseStrength = 0.15f;
+    public float strokePulseSpeed = 3.5f;
+    [Tooltip("How much the player banks/tilts into turns")]
+    public float bankAmount = 2f;
+    public float bankSmoothing = 3f;
+    [Tooltip("Gentle speed-based head bob to feel the water rushing")]
+    public float moveBobAmount = 0.008f;
+    public float moveBobSpeed = 6f;
+
+    [Header("Audio - Underwater Ambient")]
+    [Tooltip("Looping underwater ambient sound (drag in ambientsound_underwater.wav)")]
+    public AudioClip underwaterAmbientClip;
+    [Range(0f, 1f)]
+    public float ambientVolume = 0.3f;
 
     [Header("Input")]
     public InputActionReference moveAction;    // Left joystick (forward/back, strafe)
     public InputActionReference swimUpAction;  // Optional: dedicated "swim up" button (e.g. right grip)
     public InputActionReference swimDownAction; // Optional: dedicated "swim down" button (e.g. left grip)
+    public InputActionReference sprintAction;  // Optional: sprint button
 
     [Header("References")]
     public Transform headTransform; // The VR Camera / head
@@ -20,6 +47,13 @@ public class SwimLocomotion : MonoBehaviour
     // This flag lets SceneChanger turn swimming on/off
     [Header("State")]
     public bool isActive = false;
+
+    // Internal velocity for momentum system
+    private Vector3 currentVelocity;
+    private float currentBank;
+
+    // Audio
+    private AudioSource ambientSource;
 
     void Start()
     {
@@ -36,29 +70,128 @@ public class SwimLocomotion : MonoBehaviour
         if (moveAction != null) moveAction.action.Enable();
         if (swimUpAction != null) swimUpAction.action.Enable();
         if (swimDownAction != null) swimDownAction.action.Enable();
+        if (sprintAction != null) sprintAction.action.Enable();
+
+        // Set up audio sources
+        SetupAudio();
+    }
+
+    void SetupAudio()
+    {
+        // Ambient underwater loop (constant background)
+        ambientSource = gameObject.AddComponent<AudioSource>();
+        ambientSource.clip = underwaterAmbientClip;
+        ambientSource.loop = true;
+        ambientSource.volume = 0f; // Start silent, fade in when active
+        ambientSource.spatialBlend = 0f; // 2D sound (surrounds the player)
+        ambientSource.playOnAwake = false;
+
     }
 
     void Update()
     {
+        UpdateAudio();
+
         if (!isActive || characterController == null || headTransform == null) return;
 
-        // Read joystick input (left stick: x = strafe, y = forward/back)
-        Vector2 input = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
+        float dt = Time.deltaTime;
 
-        // Get the head's forward and right directions (full 3D, including pitch)
-        // This means looking up + pushing forward = swim upward
+        // --- INPUT ---
+        Vector2 input = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
+        float upInput = swimUpAction != null ? swimUpAction.action.ReadValue<float>() : 0f;
+        float downInput = swimDownAction != null ? swimDownAction.action.ReadValue<float>() : 0f;
+        float sprintInput = sprintAction != null ? sprintAction.action.ReadValue<float>() : 0f;
+
+        // --- DESIRED DIRECTION ---
         Vector3 headForward = headTransform.forward;
         Vector3 headRight = headTransform.right;
 
-        // Build movement direction from joystick + head orientation
-        Vector3 moveDirection = (headForward * input.y) + (headRight * input.x);
+        Vector3 desiredDirection = (headForward * input.y) + (headRight * input.x);
+        desiredDirection += Vector3.up * (upInput - downInput) * verticalBoost;
 
-        // Optional dedicated up/down buttons for finer control
-        float upInput = swimUpAction != null ? swimUpAction.action.ReadValue<float>() : 0f;
-        float downInput = swimDownAction != null ? swimDownAction.action.ReadValue<float>() : 0f;
-        moveDirection += Vector3.up * (upInput - downInput) * verticalBoost;
+        // Sprint modifier
+        float speedMult = 1f + (sprintInput * (sprintMultiplier - 1f));
 
-        // Apply movement (no gravity!)
-        characterController.Move(moveDirection * swimSpeed * Time.deltaTime);
+        Vector3 targetVelocity = desiredDirection * swimSpeed * speedMult;
+
+        // --- STROKE PULSE ---
+        if (input.magnitude > 0.1f)
+        {
+            float pulse = 1f + Mathf.Sin(Time.time * strokePulseSpeed) * strokePulseStrength;
+            targetVelocity *= pulse;
+        }
+
+        // --- MOMENTUM & DRAG ---
+        if (targetVelocity.magnitude > stopThreshold)
+        {
+            currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, acceleration * dt);
+        }
+        else
+        {
+            currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, drag * dt);
+            if (currentVelocity.magnitude < stopThreshold)
+                currentVelocity = Vector3.zero;
+        }
+
+        // --- APPLY MOVEMENT ---
+        characterController.Move(currentVelocity * dt);
+
+        // --- BANKING ---
+        float targetBank = -input.x * bankAmount;
+        currentBank = Mathf.Lerp(currentBank, targetBank, bankSmoothing * dt);
+
+        // --- SPEED-BASED HEAD BOB ---
+        float speedRatio = currentVelocity.magnitude / (swimSpeed * sprintMultiplier);
+        float moveBob = Mathf.Sin(Time.time * moveBobSpeed) * moveBobAmount * speedRatio;
+
+        if (headTransform.parent != null)
+        {
+            Transform cameraOffset = headTransform.parent;
+            Vector3 localPos = cameraOffset.localPosition;
+            cameraOffset.localPosition = new Vector3(localPos.x, localPos.y + moveBob, localPos.z);
+
+            Quaternion bankRotation = Quaternion.Euler(0f, 0f, currentBank);
+            cameraOffset.localRotation = Quaternion.Slerp(cameraOffset.localRotation, bankRotation, bankSmoothing * dt);
+        }
+    }
+
+    void UpdateAudio()
+    {
+        if (ambientSource == null) return;
+
+        float dt = Time.deltaTime;
+        float maxSpeed = swimSpeed * sprintMultiplier;
+        float speedRatio = (maxSpeed > 0f) ? currentVelocity.magnitude / maxSpeed : 0f;
+
+        // --- AMBIENT UNDERWATER LOOP ---
+        if (isActive)
+        {
+            // Fade in
+            if (!ambientSource.isPlaying && underwaterAmbientClip != null)
+                ambientSource.Play();
+
+            ambientSource.volume = Mathf.Lerp(ambientSource.volume, ambientVolume, 2f * dt);
+
+            // Subtle pitch shift based on speed (sounds more dynamic when moving)
+            ambientSource.pitch = Mathf.Lerp(0.95f, 1.05f, speedRatio);
+        }
+        else
+        {
+            // Fade out
+            ambientSource.volume = Mathf.Lerp(ambientSource.volume, 0f, 3f * dt);
+            if (ambientSource.volume < 0.01f && ambientSource.isPlaying)
+                ambientSource.Stop();
+        }
+
+    }
+
+    void OnDisable()
+    {
+        currentVelocity = Vector3.zero;
+        currentBank = 0f;
+
+        // Stop audio gracefully
+        if (ambientSource != null && ambientSource.isPlaying)
+            ambientSource.Stop();
     }
 }

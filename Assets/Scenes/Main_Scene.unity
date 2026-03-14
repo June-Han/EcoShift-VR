@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3030071019089355670, guid: 70401130a544f4a40be227e4b9d79749, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1098,6 +1098,7 @@ GameObject:
   - component: {fileID: 225491144}
   - component: {fileID: 225491142}
   - component: {fileID: 225491149}
+  - component: {fileID: 225491150}
   m_Layer: 0
   m_Name: XR Origin (VR)
   m_TagString: Untagged
@@ -1445,6 +1446,36 @@ MonoBehaviour:
   footstepSounds: []
   walkStepInterval: 0.5
   moveAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &225491150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225491137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccb7fb989db6604ebb9aa6cacf87612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwimLocomotion
+  swimSpeed: 3
+  sprintMultiplier: 1.8
+  verticalBoost: 1.5
+  acceleration: 2.5
+  drag: 1.8
+  stopThreshold: 0.01
+  strokePulseStrength: 0.15
+  strokePulseSpeed: 3.5
+  bankAmount: 2
+  bankSmoothing: 3
+  moveBobAmount: 0.01
+  moveBobSpeed: 6
+  moveAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  swimUpAction: {fileID: 0}
+  swimDownAction: {fileID: 0}
+  sprintAction: {fileID: 0}
+  headTransform: {fileID: 0}
+  isActive: 0
 --- !u!1 &252594438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,6 +1819,11 @@ MonoBehaviour:
   bobAmount: 0.01
   bobSpeed: 0.8
   rollAmount: 0.3
+  pitchAmount: 0.2
+  driftAmount: 0.005
+  driftSpeed: 0.3
+  breatheAmount: 0.003
+  breatheSpeed: 0.25
   isActive: 0
 --- !u!1 &632834952 stripped
 GameObject:
@@ -4212,7 +4248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3030071019089355670, guid: 70401130a544f4a40be227e4b9d79749, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
