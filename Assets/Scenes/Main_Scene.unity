@@ -1468,12 +1468,14 @@ MonoBehaviour:
   strokePulseSpeed: 3.5
   bankAmount: 2
   bankSmoothing: 3
-  moveBobAmount: 0.01
+  moveBobAmount: 0.008
   moveBobSpeed: 6
+  underwaterAmbientClip: {fileID: 8300000, guid: 8f1b255d85888a9408fe3e75cc960dc3, type: 3}
+  ambientVolume: 0.5
   moveAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   swimUpAction: {fileID: 0}
   swimDownAction: {fileID: 0}
-  sprintAction: {fileID: 0}
+  sprintAction: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   headTransform: {fileID: 0}
   isActive: 0
 --- !u!1 &252594438
