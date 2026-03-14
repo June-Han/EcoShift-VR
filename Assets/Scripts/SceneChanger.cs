@@ -17,33 +17,37 @@ public class SceneChanger : MonoBehaviour
     {
         //FindAnyObjectByType<VRFader>().FadeOutToNewScene();
 
-        SceneManager.LoadScene("Pangolin_FoodSearch"); 
-
         //Transform player into a Pangolin!
-        FindFirstObjectByType<HandSwapper>().EquipPaws();
+        HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
+        if (handSwapper != null) handSwapper.EquipPaws();
 
-        FindFirstObjectByType<SwimMotion>().isActive = false;
+        SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
+        if (swimMotion != null) swimMotion.isActive = false;
 
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
 
         //For controller mapping resets
         WakeUpInputs();
+
+        SceneManager.LoadScene("Pangolin_FoodSearch");
     }
 
     // Function for the Marine Scene
     public void LoadMarineScene()
     {
         //FindAnyObjectByType<VRFader>().FadeOutToNewScene();
-        
-        SceneManager.LoadScene("Shark_FoodSearch"); 
 
         //Transform player into a Shark!
-        FindFirstObjectByType<HandSwapper>().EquipFins();
+        HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
+        if (handSwapper != null) handSwapper.EquipFins();
 
-        FindFirstObjectByType<SwimMotion>().isActive = true;
-        
+        SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
+        if (swimMotion != null) swimMotion.isActive = true;
+
         WakeUpGameplaySystems(false, MarineXRCameraOffset);
         WakeUpInputs();
+
+        SceneManager.LoadScene("Shark_FoodSearch");
     }
 
     void WakeUpGameplaySystems(bool isTerrestrial, float XROrigin_CameraOffset)
@@ -53,7 +57,7 @@ public class SceneChanger : MonoBehaviour
         XROrigin originScript = xrOriginObject.GetComponent<XROrigin>();
 
         // Turn on the audio system
-        if (playerAudio != null) 
+        if (playerAudio != null)
         {
             playerAudio.enabled = true;
         }
@@ -71,21 +75,35 @@ public class SceneChanger : MonoBehaviour
                 // Set XR Origin Camera Offset
                 originScript.CameraYOffset = XROrigin_CameraOffset;
             }
-            
-            // Automatically find and enable the core movement scripts by their names!
-            EnableScriptByName(xrOriginObject, "ContinuousMoveProvider");
+
+            // Enable/disable ground-based movement depending on scene type
+            // ContinuousMoveProvider applies gravity and walks on ground — only for terrestrial
+            Behaviour continuousMove = (Behaviour)xrOriginObject.GetComponent("ContinuousMoveProvider");
+            if (continuousMove != null)
+            {
+                continuousMove.enabled = isTerrestrial;
+            }
+
+            // SwimLocomotion provides free 3D movement — only for marine
+            SwimLocomotion swimLocomotion = xrOriginObject.GetComponent<SwimLocomotion>();
+            if (swimLocomotion != null)
+            {
+                swimLocomotion.isActive = !isTerrestrial;
+            }
+
+            // These are needed for both scenes
             EnableScriptByName(xrOriginObject, "XRBodyTransformer");
             EnableScriptByName(xrOriginObject, "LocomotionMediator");
             EnableScriptByName(xrOriginObject, "SnapTurnProvider");
 
             // Only enable footsteps if we are in the Terrestrial scene
             Behaviour footsteps = (Behaviour)xrOriginObject.GetComponent("PlayerFootsteps");
-            if (footsteps != null) 
+            if (footsteps != null)
             {
                 footsteps.enabled = isTerrestrial;
             }
         }
-        
+
     }
 
     //To enable the scripts on XR Origin
