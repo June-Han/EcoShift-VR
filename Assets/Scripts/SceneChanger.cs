@@ -32,6 +32,19 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Pangolin_FoodSearch");
     }
 
+        SceneManager.LoadScene("Pangolin_Threat"); 
+
+        //Transform player into a Pangolin!
+        FindFirstObjectByType<HandSwapper>().EquipPaws();
+
+        FindFirstObjectByType<SwimMotion>().isActive = false;
+
+        WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
+
+        //For controller mapping resets
+        WakeUpInputs();
+    }
+
     // Function for the Marine Scene
     public void LoadMarineScene()
     {
@@ -49,6 +62,11 @@ public class SceneChanger : MonoBehaviour
 
         SceneManager.LoadScene("Shark_FoodSearch");
     }
+    
+    // Function for the Terrestrial Threat Scene
+    public void LoadTerrestrialThreatScene()
+    {
+        //FindAnyObjectByType<VRFader>().FadeOutToNewScene();
 
     void WakeUpGameplaySystems(bool isTerrestrial, float XROrigin_CameraOffset)
     {
