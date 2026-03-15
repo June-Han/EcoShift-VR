@@ -19,7 +19,7 @@ public class SceneChanger : MonoBehaviour
 
         //Transform player into a Pangolin!
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
-        if (handSwapper != null) handSwapper.EquipPaws();
+        if (handSwapper != null) handSwapper.EquipPawsWithScoreUI();
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = false;
