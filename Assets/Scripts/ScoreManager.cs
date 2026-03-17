@@ -12,13 +12,25 @@ public class ScoreManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI scoreText;
 
+    public DialogueTrigger gameCompleteDialogue;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
-    void Start() => UpdateScoreUI();
+    void Start()
+{
+    if (scoreText == null)
+    {
+        // Finds it by name anywhere in the scene, including on XR Origin
+        GameObject scoreUIText = GameObject.Find("ScoreText"); // use your TMP object's name
+        if (scoreUIText != null)
+            scoreText = scoreUIText.GetComponent<TextMeshProUGUI>();
+    }
+    UpdateScoreUI();
+}
 
     public void AddScore()
     {
@@ -31,6 +43,8 @@ public class ScoreManager : MonoBehaviour
 
     void OnGameComplete()
     {
+        if (gameCompleteDialogue != null)
+        gameCompleteDialogue.TriggerDialogue();
         Debug.Log("Game Complete!");
         // trigger win state here
     }

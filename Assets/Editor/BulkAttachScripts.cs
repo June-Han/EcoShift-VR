@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEditor;
 
+
 public class BulkAttachScripts : EditorWindow
 {
     [MenuItem("Tools/Attach Clickable Scripts to Environment")]
@@ -16,7 +17,16 @@ public class BulkAttachScripts : EditorWindow
             if (child.gameObject == insects) continue; // skip the parent itself
             if (child.GetComponent<InsectClickable>() == null)
                 child.gameObject.AddComponent<InsectClickable>();
+            
+            UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable interactable = child.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
+            if (interactable == null)
+                interactable = child.gameObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
+    
+            // Wire up the SelectEntered event
+            interactable.selectEntered.AddListener((args) => child.GetComponent<InsectClickable>().OnClicked());
             }
+            
+
             Debug.Log($"Attached InsectClickable to {insects.transform.childCount} insects");
         }
         else Debug.LogWarning("Could not find GameObject named 'Insects'");
@@ -36,6 +46,13 @@ public class BulkAttachScripts : EditorWindow
             if (child.gameObject == trash) continue; // skip the parent itself
             if (child.GetComponent<LitterClickable>() == null)
                 child.gameObject.AddComponent<LitterClickable>();
+            
+            UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable interactable = child.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
+            if (interactable == null)
+                interactable = child.gameObject.AddComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable>();
+    
+            // Wire up the SelectEntered event
+            interactable.selectEntered.AddListener((args) => child.GetComponent<LitterClickable>().OnClicked());
             }
             Debug.Log($"Attached LitterClickable to {trash.transform.childCount} trash objects");
         }
