@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 111531572}
   - component: {fileID: 111531574}
   - component: {fileID: 111531573}
+  - component: {fileID: 111531575}
   m_Layer: 6
   m_Name: Right Controller
   m_TagString: Untagged
@@ -860,6 +861,19 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!114 &111531575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111531569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6077641443dc486d88bab4680ac048f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayInteractorClickHandler
+  triggerActionReference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &159472285
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,7 +4119,7 @@ GameObject:
   - component: {fileID: 1841205425}
   m_Layer: 6
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5292,7 +5306,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5527,7 +5541,7 @@ GameObject:
   - component: {fileID: 2119188636}
   m_Layer: 6
   m_Name: Score Canvas
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

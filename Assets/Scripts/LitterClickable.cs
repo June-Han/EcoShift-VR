@@ -5,7 +5,7 @@ public class LitterClickable : MonoBehaviour
     [Tooltip("Drag a DialogueTrigger object here for first-click dialogue")]
     public DialogueTrigger firstClickDialogue;
 
-    private static bool hasTriggeredDialogue = false; // shared across all litter
+    private static bool hasTriggeredDialogue;
 
     public void OnClicked()
     {
@@ -14,8 +14,16 @@ public class LitterClickable : MonoBehaviour
             firstClickDialogue.TriggerDialogue();
             hasTriggeredDialogue = true;
         }
+        
+        if (DistortionManager.Instance != null)
+        {
+            DistortionManager.Instance.ApplyDistortion();
+        }
+        else
+        {
+            Debug.LogError("LitterClickable: CameraDistortionEffect instance not found!");
+        }
 
-        DistortionManager.Instance.ApplyDistortion();
         gameObject.SetActive(false);
     }
 }
