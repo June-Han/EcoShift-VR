@@ -74,7 +74,11 @@ public class GrassScatter : MonoBehaviour
                 if (prefabToPlace == null) continue;
 
                 // Instantiate at hit point
+                #if UNITY_EDITOR
                 GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(prefabToPlace, scatterParent.transform);
+                #else
+                GameObject instance = Instantiate(prefabToPlace, hit.point, Quaternion.identity, scatterParent.transform);
+                #endif
                 instance.transform.position = hit.point;
 
                 // Random Y rotation
