@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal; // or .HighDefinition
+using UnityEngine.Rendering.Universal;
 
 public class DistortionManager : MonoBehaviour
 {
@@ -9,122 +9,57 @@ public class DistortionManager : MonoBehaviour
 
     [Header("Post Processing")]
     public Volume postProcessVolume;
-    public float distortionStrength = 0.4f;
-    public float distortionDuration = 2.0f;
 
-    private LensDistortion lensDistortion;
+    [Header("Vignette Settings")]
+    public float vignetteStrength = 0.7f;
+    public float duration = 2.0f;
+    public Color vignetteColor = Color.red; // red feels more alarming
+
     private Vignette vignette;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-    }
 
-    void Start()
-    {
-        // Auto-find PostProcessVolume if not assigned
-        if (postProcessVolume == null)
-        {
-            postProcessVolume = FindFirstObjectByType<Volume>();
-            if (postProcessVolume == null)
-            {
-                Debug.LogError("DistortionManager: Cannot find PostProcessVolume in scene!");
-                return;
-            }
-            Debug.Log("DistortionManager: Auto-found PostProcessVolume");
-        }
-
-        // Get LensDistortion and Vignette components from Volume profile
-        if (postProcessVolume.profile != null)
-        {
-            if (!postProcessVolume.profile.TryGet(out lensDistortion))
-            {
-                Debug.LogWarning("DistortionManager: LensDistortion not found in Volume profile");
-            }
-            
-            if (!postProcessVolume.profile.TryGet(out vignette))
-            {
-                Debug.LogWarning("DistortionManager: Vignette not found in Volume profile");
-            }
-            
-            if (lensDistortion != null && vignette != null)
-            {
-                Debug.Log("DistortionManager: LensDistortion and Vignette initialized successfully");
-            }
-        }
-        else
-        {
-            Debug.LogError("DistortionManager: PostProcessVolume profile is null!");
-        }
+        postProcessVolume.profile.TryGet(out vignette);
     }
 
     public void ApplyDistortion()
     {
-        // Check if components are initialized
-        if (postProcessVolume == null)
-        {
-            Debug.LogError("DistortionManager: PostProcessVolume is null! Cannot apply distortion effect.");
-            return;
-        }
-
-        if (lensDistortion == null && vignette == null)
-        {
-            Debug.LogError("DistortionManager: Neither LensDistortion nor Vignette is initialized!");
-            return;
-        }
-
-        Debug.Log("DistortionManager: Applying distortion effect");
         StopAllCoroutines();
-        StartCoroutine(DistortRoutine());
+        StartCoroutine(VignetteRoutine());
     }
 
-    IEnumerator DistortRoutine()
+    IEnumerator VignetteRoutine()
     {
-        // Enable the effects
-        if (lensDistortion != null)
-        {
-            lensDistortion.active = true;
-            lensDistortion.intensity.value = -distortionStrength;
-            Debug.Log($"LensDistortion enabled with intensity: {-distortionStrength}");
-        }
-        
-        if (vignette != null)
-        {
-            vignette.active = true;
-            vignette.intensity.value = 0.5f;
-            Debug.Log($"Vignette enabled with intensity: 0.5");
-        }
-
         float elapsed = 0f;
-        while (elapsed < distortionDuration)
+
+        // Fade IN
+        while (elapsed < duration * 0.3f)
         {
-            float t = elapsed / distortionDuration;
-            float strength = Mathf.Lerp(distortionStrength, 0f, t);
-
-            if (lensDistortion != null)
-                lensDistortion.intensity.value = -strength;
-
+            float t = elapsed / (duration * 0.3f);
             if (vignette != null)
-                vignette.intensity.value = Mathf.Lerp(0.5f, 0.2f, t);
-
+            {
+                vignette.intensity.value = Mathf.Lerp(0f, vignetteStrength, t);
+                vignette.color.value = vignetteColor;
+            }
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // Reset values and disable effects
-        if (lensDistortion != null)
+        elapsed = 0f;
+
+        // Fade OUT
+        while (elapsed < duration * 0.7f)
         {
-            lensDistortion.intensity.value = 0f;
-            lensDistortion.active = false;
-            Debug.Log("LensDistortion disabled");
+            float t = elapsed / (duration * 0.7f);
+            if (vignette != null)
+                vignette.intensity.value = Mathf.Lerp(vignetteStrength, 0f, t);
+            elapsed += Time.deltaTime;
+            yield return null;
         }
 
-        if (vignette != null)
-        {
-            vignette.intensity.value = 0.2f;
-            vignette.active = false;
-            Debug.Log("Vignette disabled");
-        }
+        if (vignette != null) vignette.intensity.value = 0f;
     }
 }
