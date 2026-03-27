@@ -41,7 +41,7 @@ public class SceneChanger : MonoBehaviour
 
         //Transform player into a Shark!
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
-        if (handSwapper != null) handSwapper.EquipFins();
+        if (handSwapper != null) handSwapper.EquipFinsWithScoreUI();
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;

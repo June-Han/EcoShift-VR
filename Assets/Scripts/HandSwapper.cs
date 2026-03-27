@@ -57,6 +57,12 @@ public class HandSwapper : MonoBehaviour
         rightPawPrefab.SetActive(false);
 
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(false);
+    }
 
+    // Call this for Marine FoodSearch scenes that need the score counter
+    public void EquipFinsWithScoreUI()
+    {
+        EquipFins();
+        if (scoreUIPrefab != null) scoreUIPrefab.SetActive(true);
     }
 }

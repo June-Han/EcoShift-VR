@@ -94,7 +94,7 @@ public class RayInteractorClickHandler : MonoBehaviour
                 litter.OnClicked();
                 return;
             }
-            
+
             // Try to get InsectClickable component
             InsectClickable insect = hit.collider.GetComponent<InsectClickable>();
             if (insect != null)
@@ -103,8 +103,26 @@ public class RayInteractorClickHandler : MonoBehaviour
                 insect.OnClicked();
                 return;
             }
-            
-            Debug.LogWarning($"Hit object {hit.collider.gameObject.name} has no LitterClickable or InsectClickable component!");
+
+            // Try to get FishClickable component (marine scene)
+            FishClickable fish = hit.collider.GetComponent<FishClickable>();
+            if (fish != null)
+            {
+                Debug.Log("Fish clicked!");
+                fish.OnClicked();
+                return;
+            }
+
+            // Try to get DebrisClickable component (marine scene)
+            DebrisClickable debris = hit.collider.GetComponent<DebrisClickable>();
+            if (debris != null)
+            {
+                Debug.Log("Debris clicked!");
+                debris.OnClicked();
+                return;
+            }
+
+            Debug.LogWarning($"Hit object {hit.collider.gameObject.name} has no clickable component!");
         }
         else
         {
