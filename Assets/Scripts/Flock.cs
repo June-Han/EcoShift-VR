@@ -106,8 +106,8 @@ public class Flock : MonoBehaviour
         _cohesionWeight = UnityEngine.Random.Range(1f, 10f);
         _alignmentWeight = UnityEngine.Random.Range(1f, 10f);
         _avoidanceWeight = UnityEngine.Random.Range(1f, 10f);
-        _minSpeed = UnityEngine.Random.Range(1f, 2f);
-        _maxSpeed = UnityEngine.Random.Range(2f, 4f);
+        _minSpeed = UnityEngine.Random.Range(0.3f, 0.8f);
+        _maxSpeed = UnityEngine.Random.Range(0.8f, 1.5f);
     }
 
     private void Update()

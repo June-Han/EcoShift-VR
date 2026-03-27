@@ -10,6 +10,12 @@ public class FloatingArrow : MonoBehaviour
 
     private Vector3 startPos;
 
+    /// <summary>Update the base position the arrow bobs from (for moving targets like fish).</summary>
+    public void SetBasePosition(Vector3 pos)
+    {
+        startPos = pos;
+    }
+
     void Start()
     {
         startPos = transform.position;

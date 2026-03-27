@@ -301,6 +301,8 @@ GameObject:
   - component: {fileID: 4516871513897409175}
   - component: {fileID: 6446529952965630695}
   - component: {fileID: 7792623471462996721}
+  - component: {fileID: -6376109161511131638}
+  - component: {fileID: -5915801133680377525}
   m_Layer: 0
   m_Name: freshWater_guppy_variant
   m_TagString: Untagged
@@ -387,6 +389,40 @@ MonoBehaviour:
   _autoMotion: 1
   _avoidanceEnabled: 0
   finalAcceleration: 0
+--- !u!114 &-6376109161511131638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135068287928506967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea817c61d60704045b9d0337099ab7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishClickable
+  firstClickDialogue: {fileID: 0}
+--- !u!65 &-5915801133680377525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135068287928506967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.098918915, y: 0.086148374, z: 0.17627716}
+  m_Center: {x: -0.0026836395, y: 0.0047181137, z: -0.020671844}
 --- !u!1 &8068314215142630190
 GameObject:
   m_ObjectHideFlags: 0
