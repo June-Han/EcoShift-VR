@@ -113,14 +113,14 @@ public class RayInteractorClickHandler : MonoBehaviour
                 return;
             }
 
-            // Try to get DebrisClickable component (marine scene)
-            DebrisClickable debris = hit.collider.GetComponent<DebrisClickable>();
-            if (debris != null)
-            {
-                Debug.Log("Debris clicked!");
-                debris.OnClicked();
-                return;
-            }
+            // // Try to get DebrisClickable component (marine scene)
+            // DebrisClickable debris = hit.collider.GetComponent<DebrisClickable>();
+            // if (debris != null)
+            // {
+            //     Debug.Log("Debris clicked!");
+            //     debris.OnClicked();
+            //     return;
+            // }
 
             Debug.LogWarning($"Hit object {hit.collider.gameObject.name} has no clickable component!");
         }

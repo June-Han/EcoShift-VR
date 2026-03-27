@@ -57,6 +57,10 @@ public class HunterPatrol : MonoBehaviour {
         {
             GoToNextPoint(); 
         }
+
+        // Start the chase timer and vignette
+        if (HunterChaseManager.Instance != null)
+        HunterChaseManager.Instance.StartChase();
     }
 
     private void OnDrawGizmos()
