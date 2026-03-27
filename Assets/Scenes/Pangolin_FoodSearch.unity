@@ -1780,6 +1780,10 @@ PrefabInstance:
       propertyPath: firstClickDialogue
       value: 
       objectReference: {fileID: 1728701547}
+    - target: {fileID: 8697042137263320541, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.603
+      objectReference: {fileID: 0}
     - target: {fileID: 8811746444223345298, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       propertyPath: firstClickDialogue
       value: 

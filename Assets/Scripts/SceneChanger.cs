@@ -55,17 +55,16 @@ public class SceneChanger : MonoBehaviour
     // Function for the Terrestrial Threat Scene
     public void LoadTerrestrialThreatScene()
     {
-        SceneManager.LoadScene("Pangolin_Threat"); 
+        HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
+        if (handSwapper != null) handSwapper.EquipPaws();
 
-        //Transform player into a Pangolin!
-        FindFirstObjectByType<HandSwapper>().EquipPaws();
-
-        FindFirstObjectByType<SwimMotion>().isActive = false;
+        SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
+        if (swimMotion != null) swimMotion.isActive = false;
 
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
-
-        //For controller mapping resets
         WakeUpInputs();
+
+        SceneManager.LoadScene("Pangolin_Threat");
     }
 
     void WakeUpGameplaySystems(bool isTerrestrial, float XROrigin_CameraOffset)
