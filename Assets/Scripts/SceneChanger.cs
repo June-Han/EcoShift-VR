@@ -56,7 +56,7 @@ public class SceneChanger : MonoBehaviour
     public void LoadTerrestrialThreatScene()
     {
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
-        if (handSwapper != null) handSwapper.EquipPaws();
+        if (handSwapper != null) handSwapper.EquipPawsWithTimerUI();
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = false;

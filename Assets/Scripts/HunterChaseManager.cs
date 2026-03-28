@@ -37,7 +37,7 @@ public class HunterChaseManager : MonoBehaviour
         // Find timer text
         if (timerText == null)
         {
-            GameObject timerObj = GameObject.Find("TimerText");
+            GameObject timerObj = GameObject.FindGameObjectWithTag("Timer");
             if (timerObj != null) timerText = timerObj.GetComponent<TextMeshProUGUI>();
             else Debug.LogWarning("TimerText not found!");
         }

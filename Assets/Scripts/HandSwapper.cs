@@ -14,6 +14,7 @@ public class HandSwapper : MonoBehaviour
     
     [Header("Terrestrial Scene: Score UI")]
     public GameObject scoreUIPrefab; 
+    public GameObject timerUiPrefab;
 
     [Header("Marine: Fins")]
     public GameObject leftFinPrefab;
@@ -34,6 +35,7 @@ public class HandSwapper : MonoBehaviour
         rightFinPrefab.SetActive(false);
 
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(false);
+        if (timerUiPrefab != null) timerUiPrefab.SetActive(false);
     }
 
 
@@ -41,6 +43,12 @@ public class HandSwapper : MonoBehaviour
     {
         EquipPaws(); 
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(true);
+    }
+
+    public void EquipPawsWithTimerUI()
+    {
+        EquipPaws(); 
+        if (timerUiPrefab != null) timerUiPrefab.SetActive(true);
     }
 
     // Call this function for Marine to swap handles
@@ -66,3 +74,4 @@ public class HandSwapper : MonoBehaviour
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(true);
     }
 }
+

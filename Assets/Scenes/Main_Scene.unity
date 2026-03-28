@@ -1263,7 +1263,7 @@ GameObject:
   - component: {fileID: 225491151}
   m_Layer: 6
   m_Name: XR Origin (VR)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1591,6 +1591,7 @@ MonoBehaviour:
   leftPawPrefab: {fileID: 1537192142}
   rightPawPrefab: {fileID: 1620073870}
   scoreUIPrefab: {fileID: 2119188634}
+  timerUiPrefab: {fileID: 1906022194}
   leftFinPrefab: {fileID: 647283801}
   rightFinPrefab: {fileID: 562453390}
 --- !u!114 &225491149
