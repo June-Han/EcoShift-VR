@@ -51,16 +51,17 @@ namespace UnityStandardAssets.ImageEffects
                     if (textureImporter.mipmapEnabled == true) {
                         doImport = true;
                     }
+                    // Use '!=' for comparison and 'textureCompression' instead of 'textureFor
                     if (textureImporter.textureCompression != TextureImporterCompression.Uncompressed) {
                         doImport = true;
                     }
-
                     if (doImport)
                     {
                         textureImporter.isReadable = true;
                         textureImporter.mipmapEnabled = false;
+                        // FIX 2: Use 'textureCompression' for the assignment as well
                         textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
-                        AssetDatabase.ImportAsset (path, ImportAssetOptions.ForceUpdate);
+                        AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
                         //tex = AssetDatabase.LoadMainAssetAtPath(path);
                     }
 
