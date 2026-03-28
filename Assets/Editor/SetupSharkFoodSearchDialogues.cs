@@ -116,6 +116,7 @@ public class SetupSharkFoodSearchDialogues
         welcomeTrigger.sentences = new string[]
         {
             "Welcome to the open ocean!",
+            "Tilt your head for direction, and use your left joystick to swim",
             "You are a Blue Shark, one of the most widespread yet increasingly threatened shark species on Earth.",
             "Let\u2019s hunt for food! Blue Sharks are sleek, long-distance hunters that feed on squid, fish, and smaller sharks. Look for a school of fish.\r\n"
         };

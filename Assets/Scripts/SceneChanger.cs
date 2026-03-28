@@ -67,6 +67,21 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Pangolin_Threat");
     }
 
+    // Function for the Terrestrial Threat Scene
+    public void LoadSharkThreatScene()
+    {
+        HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
+        if (handSwapper != null) handSwapper.EquipFinsWithScoreUI();
+
+        SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
+        if (swimMotion != null) swimMotion.isActive = true;
+
+        WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
+        WakeUpInputs();
+
+        SceneManager.LoadScene("Shark_Threat");
+    }
+
     void WakeUpGameplaySystems(bool isTerrestrial, float XROrigin_CameraOffset)
     {
         // Get the XR Origin object that holds all the scripts
