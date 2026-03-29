@@ -4,6 +4,9 @@ public class HeadFollowUI : MonoBehaviour
 {
     [Tooltip("Distance from the camera.")]
     public float distance = 2.0f;
+
+    [Tooltip("Vertical offset. Use a negative value (e.g., -0.5) to move it downwards.")]
+    public float verticalOffset = -0.3f;
     
     [Tooltip("How smoothly the UI follows the head rotation.")]
     public float smoothTime = 0.3f;
@@ -20,13 +23,14 @@ public class HeadFollowUI : MonoBehaviour
         if (head == null) return;
         
         // Calculate the target position in front of the camera
-        Vector3 targetPosition = head.position + (head.forward * distance);
+        Vector3 targetPosition = head.position + (head.forward * distance) + (head.up * verticalOffset);
         
         // Smoothly move the UI to the target position
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         
-        // Make the UI always face the camera with the same up vector
-        transform.LookAt(transform.position + head.rotation * Vector3.forward, head.rotation * Vector3.up);
+        // Make the UI always face the camera with the same up vector (Tilting HUD Style)
+        transform.LookAt(transform.position + head.forward, head.up); //Billboard Vector3.up
+        // transform.LookAt(transform.position + head.rotation * Vector3.forward, head.rotation * Vector3.up);  // Cleaner version above
     }
 }
 

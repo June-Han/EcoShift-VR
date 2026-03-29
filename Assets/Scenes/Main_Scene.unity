@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.47058827, g: 0.59607846, b: 0.7019608, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5d5eebce588f65f418757d3cfaa9563c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1658,6 +1658,7 @@ MonoBehaviour:
   playerAudio: {fileID: 225491142}
   TerrestrialXRCameraOffset: 0.3
   MarineXRCameraOffset: 1.15
+  breathingBubbles: {fileID: 6070391551421477330, guid: f8ee66da025b89243870e0a8b34eea30, type: 3}
 --- !u!1 &252594438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 872106fd027812e458f7a8c4d231eb8f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2217,6 +2218,7 @@ MonoBehaviour:
   playerAudio: {fileID: 225491142}
   TerrestrialXRCameraOffset: 0.3
   MarineXRCameraOffset: 1.15
+  breathingBubbles: {fileID: 0}
 --- !u!114 &726917287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2383,7 +2385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 872106fd027812e458f7a8c4d231eb8f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4861,7 +4863,6 @@ GameObject:
   - component: {fileID: 2076455094}
   - component: {fileID: 2076455093}
   - component: {fileID: 2076455092}
-  - component: {fileID: 2076455096}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5096,23 +5097,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2076455096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076455090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 0}
 --- !u!1 &2080003452
 GameObject:
   m_ObjectHideFlags: 0
