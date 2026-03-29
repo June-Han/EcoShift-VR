@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // Required for loading scenes
 using Unity.XR.CoreUtils;
+using Unity.VisualScripting;
 
 public class SceneChanger : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class SceneChanger : MonoBehaviour
     [Header("XR Origin")]
     public float TerrestrialXRCameraOffset = 0.30f;
     public float MarineXRCameraOffset = 0.50f;
+
+    [Header("Underwater")]
+    [SerializeField] private ParticleSystem breathingBubbles;
 
     // Function for the Terrestrial Scene
     public void LoadTerrestrialScene()
@@ -75,6 +79,11 @@ public class SceneChanger : MonoBehaviour
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
+
+        if (breathingBubbles != null)
+        {
+            breathingBubbles.Play();
+        }
 
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
         WakeUpInputs();
