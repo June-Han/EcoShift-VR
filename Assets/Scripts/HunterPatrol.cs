@@ -30,15 +30,33 @@ public class HunterPatrol : MonoBehaviour {
         
         if (!hasShot && player != null && Vector3.Distance(transform.position, player.transform.position) < detectionRadius)
         {
-            agent.enabled = false; 
+            TriggerShoot();
+            // agent.enabled = false; 
+            // Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+            // transform.rotation = Quaternion.LookRotation(directionToPlayer);
+            // animator.SetBool("IsWalking", false);
+            // animator.SetTrigger("Shoot");
+            // hasShot = true;
+            // AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
+            // screenFader.StartFadeToBlack(1.5f);
+        }
+    }
+
+    public void TriggerShoot()
+    {
+        if (hasShot) return; // prevent double triggering
+        
+        agent.enabled = false;
+        if (player != null)
+        {
             Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
             transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            animator.SetBool("IsWalking", false);
-            animator.SetTrigger("Shoot");
-            hasShot = true;
-            AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
-            screenFader.StartFadeToBlack(1.5f);
         }
+        animator.SetBool("IsWalking", false);
+        animator.SetTrigger("Shoot");
+        hasShot = true;
+        AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
+        screenFader.StartFadeToBlack(1.5f);
     }
 
     void GoToNextPoint() {

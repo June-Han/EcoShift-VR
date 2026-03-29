@@ -608,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadFollowUI
   distance: 2
+  verticalOffset: -0.3
   smoothTime: 0.3
 --- !u!114 &178607777
 MonoBehaviour:
@@ -1129,9 +1130,9 @@ MonoBehaviour:
   totalTime: 60
   timerText: {fileID: 0}
   postProcessVolume: {fileID: 355061754}
-  vignetteNearDistance: 10
-  vignetteDangerDistance: 4
-  maxVignetteStrength: 2
+  vignetteNearDistance: 20
+  vignetteDangerDistance: 20
+  maxVignetteStrength: 3
   vignetteColor: {r: 1, g: 0, b: 0, a: 1}
   hunter: {fileID: 1336596350}
   player: {fileID: 0}
@@ -2768,6 +2769,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 489433837}
+        m_TargetAssemblyTypeName: HunterChaseManager, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &1461401444
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3562,6 +3575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadFollowUI
   distance: 0.5
+  verticalOffset: -0.3
   smoothTime: 0.3
 --- !u!114 &2103401059
 MonoBehaviour:
