@@ -1,8 +1,20 @@
 using UnityEngine;
+
 public class SharkSceneChanger : MonoBehaviour
 {
-    // Import in scene changer script
-    [SerializeField] private SceneChanger sceneChanger;
+    private SceneChanger sceneChanger;
+
+    private void Start()
+    {
+        // This tells Unity to search the active scene for the SceneChanger script
+        // the moment this black box loads in.
+        sceneChanger = FindFirstObjectByType<SceneChanger>();
+        
+        if (sceneChanger == null)
+        {
+            Debug.LogWarning("Could not find SceneChanger in the scene! Is the XR Origin loaded?");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -10,10 +22,6 @@ public class SharkSceneChanger : MonoBehaviour
         if (other.CompareTag("Player") && sceneChanger != null) 
         {
             sceneChanger.LoadSharkThreatScene();
-        }
-        else if (sceneChanger == null)
-        {
-            Debug.LogWarning("SceneChanger is not assigned on " + gameObject.name);
         }
     }
 }
