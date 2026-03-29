@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -29,8 +30,29 @@ public class DialogueTrigger : MonoBehaviour
 
         if (triggerOnStart)
         {
-            TriggerDialogue();
+            // Wait for Camera.main to be available before showing the dialogue
+            // The persistent XR Origin's camera may not be ready on the first frame
+            StartCoroutine(WaitForCameraThenTrigger());
         }
+    }
+
+    private IEnumerator WaitForCameraThenTrigger()
+    {
+        // Wait until Camera.main is available (up to 3 seconds)
+        float timeout = 3f;
+        float elapsed = 0f;
+        while (Camera.main == null && elapsed < timeout)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        if (Camera.main == null)
+        {
+            Debug.LogWarning($"DialogueTrigger ({name}): Camera.main not found after {timeout}s — showing dialogue anyway.");
+        }
+
+        TriggerDialogue();
     }
 
     // This method is called when another collider enters the trigger collider attached to this object

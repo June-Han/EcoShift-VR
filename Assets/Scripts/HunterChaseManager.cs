@@ -30,6 +30,8 @@ public class HunterChaseManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        postProcessVolume.profile.TryGet(out vignette);
     }
 
     void Start()
@@ -57,14 +59,6 @@ public class HunterChaseManager : MonoBehaviour
             if (hunter == null) Debug.LogWarning("HunterPatrol not found!");
         }
 
-        // Grab vignette AFTER volume is confirmed
-        if (postProcessVolume != null)
-        {
-            postProcessVolume.profile.TryGet(out vignette);
-            Debug.Log($"Vignette grabbed: {(vignette != null ? "YES" : "FAILED")}");
-        }
-        else Debug.LogWarning("Post Process Volume not assigned!");
-
         // Debug all references
         Debug.Log($"timerText: {(timerText != null ? "YES" : "MISSING")}");
         Debug.Log($"player: {(player != null ? "YES" : "MISSING")}");
@@ -88,6 +82,25 @@ public class HunterChaseManager : MonoBehaviour
         }
 
         if (timeRemaining <= 0) OnTimerEnd();
+    }
+
+    public void StartTimer()
+    {
+        // Find timer text now that UI is active
+        if (timerText == null)
+        {
+            TextMeshProUGUI[] allTexts = FindObjectsByType<TextMeshProUGUI>(FindObjectsSortMode.None);
+            foreach (TextMeshProUGUI tmp in allTexts)
+            {
+                if (tmp.CompareTag("Timer"))
+                {
+                    timerText = tmp;
+                    break;
+                }
+            }
+        }
+        timeRemaining = totalTime;
+        timerRunning = true;
     }
 
     public void StartChase()
@@ -115,25 +128,23 @@ public class HunterChaseManager : MonoBehaviour
     {
         if (vignette == null) return;
 
-        if (distance > vignetteNearDistance)
+        if (distance <= vignetteNearDistance)
         {
-            // Hunter far away - no vignette
-            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0f, Time.deltaTime * 3f);
+            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, maxVignetteStrength, Time.deltaTime * 5f);
+            vignette.color.value = vignetteColor;
         }
         else
         {
-            // Hunter nearby - scale vignette strength by distance
-            float t = 1f - Mathf.InverseLerp(vignetteDangerDistance, vignetteNearDistance, distance);
-            float targetStrength = Mathf.Lerp(0f, maxVignetteStrength, t);
-            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetStrength, Time.deltaTime * 5f);
-            vignette.color.value = vignetteColor;
+            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0f, Time.deltaTime * 3f);
         }
     }
 
     void OnTimerEnd()
     {
         timerRunning = false;
-        // add whatever happens when timer runs out here
-        Debug.Log("Timer ended!");
+        if (vignette != null) vignette.intensity.value = 0f;
+        
+        if (hunter != null)
+            hunter.TriggerShoot();
     }
 }

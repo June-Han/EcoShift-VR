@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  dialogueManager: {fileID: 0}
+  dialogueManager: {fileID: 1337003607}
   sentences:
   - 'Careful! Animals that ingest plastic waste may suffer toxin exposure and neurological
     damage.
@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1666619388117684339, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.82928
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1666619388117684339, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1019,11 +1019,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1666619388117684339, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 28597.791
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1666619388117684339, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1052.0701
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1666619388117684339, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1072,6 +1072,10 @@ PrefabInstance:
     - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_Name
       value: Popup_Panels
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
