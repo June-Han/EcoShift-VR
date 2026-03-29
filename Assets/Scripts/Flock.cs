@@ -96,7 +96,7 @@ public class Flock : MonoBehaviour
             Debug.LogWarning("Flock could not find the MainCamera! Did you forget to tag it?");
             playerTransform = this.transform; // Fallback so the game doesn't crash
         }
-        SetRandomValues();
+        // SetRandomValues();
         GenerateUnits();
     }
 

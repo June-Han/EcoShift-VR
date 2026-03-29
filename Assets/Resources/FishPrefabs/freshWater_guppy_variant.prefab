@@ -300,7 +300,6 @@ GameObject:
   - component: {fileID: 7516237716520059117}
   - component: {fileID: 4516871513897409175}
   - component: {fileID: 6446529952965630695}
-  - component: {fileID: 7792623471462996721}
   - component: {fileID: -6376109161511131638}
   - component: {fileID: -5915801133680377525}
   m_Layer: 0
@@ -366,29 +365,8 @@ MonoBehaviour:
   _smoothDamp: 1
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
-  speed: 1
---- !u!114 &7792623471462996721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135068287928506967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e52a9cd2d5e84468e00a63ab12cefa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishAlive.FishMotion
-  target: {fileID: 0}
-  _targetReachMode: 0
-  Config: {fileID: 11400000, guid: a5116be3f7a26a444aa8c538fff87325, type: 2}
-  drawDebug:
-    avoidance: 0
-    path: 0
-  _autoMotion: 1
-  _avoidanceEnabled: 0
-  finalAcceleration: 0
+    m_Bits: 72
+  speed: 1.8
 --- !u!114 &-6376109161511131638
 MonoBehaviour:
   m_ObjectHideFlags: 0
