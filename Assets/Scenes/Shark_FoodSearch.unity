@@ -3144,7 +3144,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.121, y: 0.313}
-  m_SizeDelta: {x: 800, y: 300}
+  m_SizeDelta: {x: 850, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &583518378
 MonoBehaviour:
@@ -3265,6 +3265,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -3275,6 +3283,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -3976,6 +3988,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -3986,6 +4006,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -4784,6 +4808,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -4794,6 +4826,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -5387,6 +5423,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -5397,6 +5441,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -5947,6 +5995,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -5957,6 +6013,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -6514,6 +6574,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -6524,6 +6592,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -7133,7 +7205,7 @@ GameObject:
   - component: {fileID: 1223660036}
   - component: {fileID: 1223660037}
   m_Layer: 0
-  m_Name: Flock (3)
+  m_Name: Flock (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7166,7 +7238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121387d1d0c082d4485195e5dc4a9348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flock
-  flockSize: 100
+  flockSize: 25
   spawnBounds: {x: 10, y: 0, z: 10}
   _minSpeed: 1
   _maxSpeed: 2
@@ -7182,7 +7254,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!1 &1225585394
 GameObject:
   m_ObjectHideFlags: 0
@@ -7293,7 +7365,7 @@ GameObject:
   - component: {fileID: 1246602200}
   - component: {fileID: 1246602201}
   m_Layer: 0
-  m_Name: Flock (2)
+  m_Name: Flock (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7326,7 +7398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121387d1d0c082d4485195e5dc4a9348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flock
-  flockSize: 100
+  flockSize: 25
   spawnBounds: {x: 10, y: 0, z: 10}
   _minSpeed: 1
   _maxSpeed: 2
@@ -7342,7 +7414,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!1001 &1251036206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7623,7 +7695,7 @@ GameObject:
   - component: {fileID: 1333732437}
   - component: {fileID: 1333732438}
   m_Layer: 0
-  m_Name: Flock (4)
+  m_Name: Flock (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7656,7 +7728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121387d1d0c082d4485195e5dc4a9348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flock
-  flockSize: 100
+  flockSize: 25
   spawnBounds: {x: 10, y: 0, z: 10}
   _minSpeed: 1
   _maxSpeed: 2
@@ -7664,7 +7736,7 @@ MonoBehaviour:
   _avoidanceDistance: 2
   _alignmentDistance: 2
   _obstacleDistance: 5
-  _boundsDistance: 20
+  _boundsDistance: 30
   _cohesionWeight: 2
   _avoidanceWeight: 1
   _alignmentWeight: 1
@@ -7672,7 +7744,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!1001 &1334950663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7681,6 +7753,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
@@ -7692,6 +7772,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -8669,8 +8753,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _boundsDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
@@ -8683,6 +8771,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -9633,6 +9725,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -9643,6 +9743,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -9975,12 +10079,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -10257,7 +10373,7 @@ GameObject:
   - component: {fileID: 1900070820}
   - component: {fileID: 1900070821}
   m_Layer: 0
-  m_Name: Flock (1)
+  m_Name: Flock (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10290,7 +10406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121387d1d0c082d4485195e5dc4a9348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flock
-  flockSize: 100
+  flockSize: 25
   spawnBounds: {x: 10, y: 0, z: 10}
   _minSpeed: 1
   _maxSpeed: 2
@@ -10306,7 +10422,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!1001 &1918111983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10470,6 +10586,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3849536766248036480, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849536766248036480, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 40
       objectReference: {fileID: 0}
@@ -10582,6 +10702,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -10592,6 +10720,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -10933,6 +11065,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
       objectReference: {fileID: 0}
@@ -10943,6 +11083,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -12458,8 +12602,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 674817520}
     m_Modifications:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _boundsDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
@@ -12472,6 +12620,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
