@@ -49,6 +49,11 @@ public class SceneChanger : MonoBehaviour
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
+        
+        if (breathingBubbles != null)
+        {
+            breathingBubbles.Play();
+        }
 
         WakeUpGameplaySystems(false, MarineXRCameraOffset);
         WakeUpInputs();
@@ -71,7 +76,7 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Pangolin_Threat");
     }
 
-    // Function for the Terrestrial Threat Scene
+    // Function for the Shark Threat Scene
     public void LoadSharkThreatScene()
     {
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
