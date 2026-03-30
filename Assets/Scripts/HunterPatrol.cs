@@ -1,15 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class HunterPatrol : MonoBehaviour {
     public float speed = 1.5f;
     public AudioClip gunShotSound;
     public ScreenFader screenFader;
-    public Transform[] waypoints; 
-    private int currentPoint = 0;
     private NavMeshAgent agent;
     [SerializeField] private bool startMove = false;
+    private bool isChasing = false;
     private Animator animator;
     private GameObject player;
     private float detectionRadius = 3.5f;
@@ -25,20 +25,14 @@ public class HunterPatrol : MonoBehaviour {
     void Update() {
         animator.SetBool("IsWalking", agent.enabled && agent.hasPath && agent.velocity.sqrMagnitude > 0);
         
-        if (agent.enabled && !agent.pathPending && agent.remainingDistance < 0.5f)
-            GoToNextPoint();
-        
-        if (!hasShot && player != null && Vector3.Distance(transform.position, player.transform.position) < detectionRadius)
-        {
-            TriggerShoot();
-            // agent.enabled = false; 
-            // Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
-            // transform.rotation = Quaternion.LookRotation(directionToPlayer);
-            // animator.SetBool("IsWalking", false);
-            // animator.SetTrigger("Shoot");
-            // hasShot = true;
-            // AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
-            // screenFader.StartFadeToBlack(1.5f);
+        if (isChasing && player != null && agent.enabled) {
+            // Update destination to player's current position
+            agent.destination = player.transform.position;
+            
+            // Check if close enough to shoot
+            if (!hasShot && Vector3.Distance(transform.position, player.transform.position) < detectionRadius) {
+                TriggerShoot();
+            }
         }
     }
 
@@ -57,28 +51,28 @@ public class HunterPatrol : MonoBehaviour {
         hasShot = true;
         AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
         screenFader.StartFadeToBlack(1.5f);
+        
+        // Reload scene after 1 second
+        Invoke("ReloadScene", 1f);
     }
 
-    void GoToNextPoint() {
-        if (waypoints.Length == 0) return;
-        agent.destination = waypoints[currentPoint].position;
-        agent.speed = speed;
-        currentPoint = (currentPoint + 1) % waypoints.Length;
+    private void ReloadScene()
+    {
+        // Reload current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
+
     public void StartPatrol()
     {
         startMove = true;
+        isChasing = true;
         agent.enabled = true; 
         agent.speed = speed;
-        if (waypoints.Length > 0)
-        {
-            GoToNextPoint(); 
+        
+        // Start chasing the player
+        if (player != null) {
+            agent.destination = player.transform.position;
         }
-
-        // Start the chase timer and vignette
-        if (HunterChaseManager.Instance != null)
-        HunterChaseManager.Instance.StartChase();
     }
 
     private void OnDrawGizmos()
