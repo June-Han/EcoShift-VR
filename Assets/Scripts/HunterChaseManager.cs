@@ -10,7 +10,7 @@ public class HunterChaseManager : MonoBehaviour
 
     [Header("Timer")]
     public float totalTime = 60f;
-    public TextMeshProUGUI timerText;
+    public TMP_Text timerText;
     private float timeRemaining;
     private bool timerRunning = false;
 

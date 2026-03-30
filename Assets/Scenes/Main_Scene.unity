@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 21398208}
   m_Layer: 6
   m_Name: Text (TMP)
-  m_TagString: Score
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3829,7 +3829,7 @@ GameObject:
   - component: {fileID: 1906022199}
   m_Layer: 6
   m_Name: Timer Canvas
-  m_TagString: Timer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
