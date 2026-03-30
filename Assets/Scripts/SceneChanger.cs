@@ -90,7 +90,7 @@ public class SceneChanger : MonoBehaviour
             breathingBubbles.Play();
         }
 
-        WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
+        WakeUpGameplaySystems(false, MarineXRCameraOffset);
         WakeUpInputs();
 
         SceneManager.LoadScene("Shark_Threat");
