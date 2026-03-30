@@ -2799,6 +2799,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1791997286801689926, guid: 7a96dd6d5a2d21445ba3453050a2f194, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f236e30210314dc429400fb87b003f19, type: 2}
     - target: {fileID: 1796934902510733828, guid: 7a96dd6d5a2d21445ba3453050a2f194, type: 3}
       propertyPath: m_Name
       value: Bubbles
@@ -3277,6 +3281,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
       value: 3
       objectReference: {fileID: 0}
@@ -3684,6 +3692,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1400460875}
   - {fileID: 1800333744}
   - {fileID: 1525411133}
   - {fileID: 1953447687}
@@ -3998,6 +4007,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
@@ -4820,6 +4833,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
       value: 2
       objectReference: {fileID: 0}
@@ -5435,6 +5452,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
       value: 4
       objectReference: {fileID: 0}
@@ -6005,6 +6026,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
@@ -6584,6 +6609,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
@@ -7409,7 +7438,7 @@ MonoBehaviour:
   _boundsDistance: 20
   _cohesionWeight: 2
   _avoidanceWeight: 1
-  _alignmentWeight: 1
+  _alignmentWeight: 5
   _boundsWeight: 10
   _obstacleWeight: 25
   _obstacleMask:
@@ -7764,6 +7793,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
@@ -8318,6 +8351,116 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8076513646333382045, guid: 9c62eefaf2b00cd439ca0cc107144301, type: 3}
   m_PrefabInstance: {fileID: 1398831648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1400460874
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 674817520}
+    m_Modifications:
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _maxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _minSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: flockSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: spawnBounds.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: spawnBounds.z
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _boundsDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleWeight
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _avoidanceWeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _cohesionDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_Name
+      value: Flock (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+--- !u!4 &1400460875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8539544700014537090, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+  m_PrefabInstance: {fileID: 1400460874}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1406901656
 GameObject:
@@ -9737,6 +9880,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
       value: 4
       objectReference: {fileID: 0}
@@ -10089,6 +10236,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _avoidanceWeight
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleDistance
@@ -10714,6 +10865,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
       value: 3
       objectReference: {fileID: 0}
@@ -11075,6 +11230,10 @@ PrefabInstance:
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleWeight
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _alignmentWeight
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _cohesionDistance
