@@ -249,7 +249,7 @@ public class Flock : MonoBehaviour
             var spawnPosition = transform.position + randomVector;
             var rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
             allUnits[i] = Instantiate(flockUnitPrefab, spawnPosition, rotation);
-            allUnits[i].myTransform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 0.8f);
+            allUnits[i].myTransform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 0.6f);
             allUnits[i].AssignFlock(this);
             allUnits[i].InitializeSpeed(UnityEngine.Random.Range(minSpeed, maxSpeed));
         }
