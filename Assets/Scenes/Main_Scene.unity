@@ -1607,7 +1607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFootsteps
   audioSource: {fileID: 225491142}
-  footstepSounds: []
+  footstepSounds:
+  - {fileID: 8300000, guid: fc32c6fd07980144996b811e5d1f2971, type: 3}
   walkStepInterval: 0.5
   moveAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &225491150
