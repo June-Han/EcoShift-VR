@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4188240710630979277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_fin_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6232595872180207268}
   - component: {fileID: 936512239097517675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: guppy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758559714858419543}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4740069832964641077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3678877307862966089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_tailfin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 331287079428730000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_spine_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8942276437810052890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_fin_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 6446529952965630695}
   - component: {fileID: -6376109161511131638}
   - component: {fileID: -5915801133680377525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: freshWater_guppy_variant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7486083413623854282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bone_spine_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}

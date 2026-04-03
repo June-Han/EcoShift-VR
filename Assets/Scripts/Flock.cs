@@ -112,6 +112,30 @@ public class Flock : MonoBehaviour
 
     private void Update()
     {
+        // --- THE "DEAD FISH" RESPAWN SYSTEM ---
+        for (int i = 0; i < allUnits.Length; i++)
+        {
+            if (allUnits[i] == null)
+            {
+                // Calculate a random spawn position near the Flock Manager
+                Vector3 randomOffset = UnityEngine.Random.insideUnitSphere * (boundsDistance * 0.5f);
+                Vector3 spawnPos = transform.position + randomOffset;
+                Quaternion spawnRot = Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
+
+                // Spawn the new fish! 
+                // (Since your code uses 'flockUnitPrefab', we instantiate that)
+                var newFish = Instantiate(flockUnitPrefab, spawnPos, spawnRot);
+                
+                // Keep your Hierarchy clean by organizing it under the manager
+                newFish.transform.SetParent(this.transform);
+
+                // Plug the hole in the array!
+                allUnits[i] = newFish;
+                
+                Debug.Log("A poached fish was replaced by the ecosystem!");
+            }
+        }
+        // -------------------------------------------
         NativeArray<Vector3> unitForwardDirections = new NativeArray<Vector3>(allUnits.Length, Allocator.TempJob);
         NativeArray<Vector3> unitPositions = new NativeArray<Vector3>(allUnits.Length, Allocator.TempJob);
         NativeArray<Vector3> currentVelocities = new NativeArray<Vector3>(allUnits.Length, Allocator.TempJob);

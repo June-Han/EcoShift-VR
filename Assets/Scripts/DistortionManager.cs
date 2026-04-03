@@ -17,12 +17,34 @@ public class DistortionManager : MonoBehaviour
 
     private Vignette vignette;
 
-    void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+    // void Awake()
+    // {
+    //     if (Instance == null) Instance = this;
+    //     else Destroy(gameObject);
 
-        postProcessVolume.profile.TryGet(out vignette);
+    //     postProcessVolume.profile.TryGet(out vignette);
+    // }
+
+    void Start()
+    {
+        // Moved from Awake to Start to ensure the Volume is fully loaded
+        if (postProcessVolume.profile.TryGet(out vignette))
+        {
+            // Force the master switch ON, just in case it was disabled in the Inspector!
+            vignette.active = true; 
+            vignette.color.overrideState = true;
+            vignette.center.overrideState = true;
+            vignette.intensity.overrideState = true;
+            vignette.smoothness.overrideState = true;
+            vignette.rounded.overrideState = true;
+            
+            // Set it to 0 immediately so the screen starts clear
+            vignette.intensity.Override(0f);
+        }
+        else
+        {
+            Debug.LogError("DistortionManager could not find Vignette in the Volume Profile!");
+        }
     }
 
     public void ApplyDistortion()

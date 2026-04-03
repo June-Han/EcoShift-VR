@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour {
 
         // Assign event camera so UI interactions work
         Camera cam = Camera.main;
-        if (cam == null) cam = FindObjectOfType<Camera>();
+        if (cam == null) cam = FindFirstObjectByType<Camera>();
         if (cam != null && canvasComp != null && canvasComp.renderMode == RenderMode.WorldSpace) {
             canvasComp.worldCamera = cam;
         }

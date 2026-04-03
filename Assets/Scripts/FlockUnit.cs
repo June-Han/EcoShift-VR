@@ -26,6 +26,7 @@ public class FlockUnit : MonoBehaviour
 	private void Awake()
 	{
 		myTransform = transform;
+		animator = GetComponent<Animator>();
 	}
 
 	public void AssignFlock(Flock flock)

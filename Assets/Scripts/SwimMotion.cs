@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; // REQUIRED FOR COROUTINES
 
 public class SwimMotion : MonoBehaviour
 {
@@ -23,12 +24,29 @@ public class SwimMotion : MonoBehaviour
 
     private Vector3 startPos;
     private float timeOffset;
+    
+
+    [Header("Trap Penalty Settings")]
+    [Tooltip("How much speed is kept when tangled (0.2 = 20% speed)")]
+    public float tangledSpeedMultiplier = 0.4f;
+    private bool isTangled = false;
+
+    // Memorize original visual speeds
+    private float originalSwaySpeed;
+    private float originalBobSpeed;
+    private float originalDriftSpeed;
+
 
     void Start()
     {
         startPos = transform.localPosition;
         // Random offset so motion feels organic, not synchronized
         timeOffset = Random.Range(0f, 100f);
+
+        // Save the normal speeds before any nets hit the shark
+        originalSwaySpeed = swaySpeed;
+        originalBobSpeed = bobSpeed;
+        originalDriftSpeed = driftSpeed;
     }
 
     void Update()
@@ -71,5 +89,54 @@ public class SwimMotion : MonoBehaviour
         float yawY = Mathf.Sin(t * driftSpeed * 0.5f) * 0.1f;
 
         transform.localRotation = Quaternion.Euler(pitchX, yawY, rollZ);
+    }
+
+    // --- TRAP PENALTY SYSTEM ---
+    
+    public void SlowDownPlayer(float penaltyDuration)
+    {
+        if (!isTangled)
+        {
+            StartCoroutine(TangledRoutine(penaltyDuration));
+        }
+    }
+
+    private IEnumerator TangledRoutine(float duration)
+    {
+        isTangled = true;
+        Debug.LogWarning("SHARK TANGLED! Slashing physical and visual speeds...");
+
+        // Slash the visual ambient speeds
+        swaySpeed *= tangledSpeedMultiplier;
+        bobSpeed *= tangledSpeedMultiplier;
+        driftSpeed *= tangledSpeedMultiplier;
+
+        // Find YOUR custom locomotion script
+        SwimLocomotion locomotion = GetComponentInParent<SwimLocomotion>();
+        float originalPhysicalSpeed = 0f;
+
+        // Slash the ACTUAL physical swim speed
+        if (locomotion != null)
+        {
+            originalPhysicalSpeed = locomotion.swimSpeed;
+            locomotion.swimSpeed *= tangledSpeedMultiplier; 
+        }
+
+        // Wait for the net to break (e.g., 5 seconds)
+        yield return new WaitForSeconds(duration);
+
+        // Restore visual speeds
+        swaySpeed = originalSwaySpeed;
+        bobSpeed = originalBobSpeed;
+        driftSpeed = originalDriftSpeed;
+
+        // Restore physical speed
+        if (locomotion != null)
+        {
+            locomotion.swimSpeed = originalPhysicalSpeed;
+        }
+
+        Debug.Log("SHARK FREE! Speeds restored.");
+        isTangled = false;
     }
 }

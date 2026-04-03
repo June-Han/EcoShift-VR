@@ -85,6 +85,12 @@ public class SceneChanger : MonoBehaviour
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
 
+        SharkThreatStatus sharkThreatStatus = FindFirstObjectByType<SharkThreatStatus>();
+        if (sharkThreatStatus != null)
+        {
+            sharkThreatStatus.enabled = true;
+        }
+
         if (breathingBubbles != null)
         {
             breathingBubbles.Play();

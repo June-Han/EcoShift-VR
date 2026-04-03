@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor
-  m_InteractionManager: {fileID: 1341679313}
+  m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
     m_Bits: 4294967295
   m_Handedness: 0
@@ -1261,6 +1261,7 @@ GameObject:
   - component: {fileID: 225491149}
   - component: {fileID: 225491150}
   - component: {fileID: 225491151}
+  - component: {fileID: 225491152}
   m_Layer: 6
   m_Name: XR Origin (VR)
   m_TagString: Player
@@ -1314,7 +1315,7 @@ Transform:
   m_Children:
   - {fileID: 608307532}
   - {fileID: 1717126037}
-  - {fileID: 1341679314}
+  - {fileID: 1831211991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &225491141
@@ -1659,6 +1660,19 @@ MonoBehaviour:
   TerrestrialXRCameraOffset: 0.3
   MarineXRCameraOffset: 1.15
   breathingBubbles: {fileID: 237891507}
+--- !u!114 &225491152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225491137}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53770d09f92d071468ed4c56492a8426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SharkThreatStatus
+  maxLives: 3
 --- !u!1001 &237891506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2127,6 +2141,38 @@ MonoBehaviour:
   breatheAmount: 0.003
   breatheSpeed: 0.25
   isActive: 0
+  tangledSpeedMultiplier: 0.4
+--- !u!1 &631119081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631119082}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Respawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &631119082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631119081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &632834952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4283425761326543017, guid: 9f3369e30fbd31f4bb596b1a99babe83, type: 3}
@@ -2689,67 +2735,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ec8018cdb6ab8e48a26673519ccccdc, type: 3}
   m_PrefabInstance: {fileID: 1073421030}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1341679312
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1341679314}
-  - component: {fileID: 1341679313}
-  - component: {fileID: 1341679315}
-  m_Layer: 6
-  m_Name: XR Interaction Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1341679313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341679312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
---- !u!4 &1341679314
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341679312}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 225491140}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1341679315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341679312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017c5e3933235514c9520e1dace2a4b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager
-  m_ActionAssets:
-  - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1429982523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,6 +3663,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeshClipper
   boundsCenter: {x: 30, y: 55, z: 55}
   boundsSize: {x: 30, y: 30, z: 25}
+--- !u!1001 &1831211990
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 225491140}
+    m_Modifications:
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.54504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.77402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969069018756945500, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+      propertyPath: m_Name
+      value: XR Interaction Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+--- !u!4 &1831211991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1997841694047801360, guid: 3e297a0b22f726a4ea436f0dd8789a77, type: 3}
+  m_PrefabInstance: {fileID: 1831211990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1841205423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,7 +3954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906022194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -4036,7 +4083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor
-  m_InteractionManager: {fileID: 1341679313}
+  m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
     m_Bits: 4294967295
   m_Handedness: 0
@@ -5293,7 +5340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119188634}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -5316,3 +5363,4 @@ SceneRoots:
   - {fileID: 2047889998}
   - {fileID: 2080003453}
   - {fileID: 32800035}
+  - {fileID: 631119082}
