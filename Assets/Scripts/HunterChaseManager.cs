@@ -25,6 +25,7 @@ public class HunterChaseManager : MonoBehaviour
     [Header("References")]
     public HunterPatrol hunter;
     public Transform player;
+    public DialogueTrigger failDialogue;
 
     void Awake()
     {
@@ -143,8 +144,11 @@ public class HunterChaseManager : MonoBehaviour
     {
         timerRunning = false;
         if (vignette != null) vignette.intensity.value = 0f;
-        
+
         if (hunter != null)
+        {
             hunter.TriggerShoot();
+            failDialogue.TriggerDialogue();
+        }
     }
 }

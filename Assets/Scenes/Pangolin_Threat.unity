@@ -845,6 +845,7 @@ MonoBehaviour:
   vignetteColor: {r: 1, g: 0, b: 0, a: 1}
   hunter: {fileID: 1336596350}
   player: {fileID: 0}
+  failDialogue: {fileID: 2062711784}
 --- !u!1 &508326055
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,7 +3116,9 @@ Transform:
   m_Children:
   - {fileID: 1853213562}
   - {fileID: 1523934304}
+  - {fileID: 2062711785}
   - {fileID: 1461401441}
+  - {fileID: 1977387382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1853213561
@@ -3302,6 +3305,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607d337d68e0881449ad88bd039e51a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingArrow
+--- !u!1 &1977387381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1977387382}
+  - component: {fileID: 1977387385}
+  - component: {fileID: 1977387384}
+  - component: {fileID: 1977387383}
+  m_Layer: 0
+  m_Name: DialogueBurrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1977387382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977387381}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.68, y: -1.18, z: -5.78}
+  m_LocalScale: {x: 2.2952, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1813825515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1977387383
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977387381}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1977387384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977387381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueManager: {fileID: 851848416}
+  sentences:
+  - "That\u2019s a burrow! Quick hide!\r\n"
+  - 'Pangolins create deep sleeping burrows with their strong curved claws.
+
+'
+  - 'Other than providing shelter, burrows aerate compact soil and improve water
+    and oxygen flow to plant roots.
+
+'
+  - "Oh no, it seems like the poacher caught another pangolin\u2026"
+  triggerOnce: 1
+  triggerOnStart: 0
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 153625708}
+        m_TargetAssemblyTypeName: FloatingArrow, Assembly-CSharp
+        m_MethodName: DeactiveArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1221044202}
+        m_TargetAssemblyTypeName: FloatingArrow, Assembly-CSharp
+        m_MethodName: DeactiveArrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1977387385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977387381}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 1.84, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2049299933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3364,6 +3501,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4264781676009615927, guid: 87c8a39fa8d10344e8494727717ccbda, type: 3}
   m_PrefabInstance: {fileID: 2049299933}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2062711783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062711785}
+  - component: {fileID: 2062711784}
+  m_Layer: 0
+  m_Name: FailDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2062711784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062711783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueManager: {fileID: 851848416}
+  sentences:
+  - 'Oh no, it seems like you did not find a burrow.
+
+'
+  - 'Pangolins create deep sleeping burrows with their strong curved claws.
+
+'
+  - 'Other than providing shelter, burrows aerate compact soil and improve water
+    and oxygen flow to plant roots.
+
+'
+  triggerOnce: 1
+  triggerOnStart: 0
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 508326058}
+        m_TargetAssemblyTypeName: EndPointController, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &2062711785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062711783}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.77565, y: -3.33397, z: 22.78863}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1813825515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2064682515
 GameObject:
   m_ObjectHideFlags: 0
