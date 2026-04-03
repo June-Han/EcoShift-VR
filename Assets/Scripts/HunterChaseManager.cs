@@ -25,6 +25,14 @@ public class HunterChaseManager : MonoBehaviour
     [Header("References")]
     public HunterPatrol hunter;
     public Transform player;
+    public DialogueTrigger failDialogue;
+
+    [Header("Heartbeat Audio")]
+    public AudioSource heartbeatSource;
+    public AudioClip heartbeatClip;
+    public float heartbeatFarInterval = 1.5f;   // slow when far
+    public float heartbeatNearInterval = 0.4f;  // fast when close
+    private float heartbeatTimer = 0f;
 
     void Awake()
     {
@@ -79,6 +87,7 @@ public class HunterChaseManager : MonoBehaviour
         {
             float distance = Vector3.Distance(hunter.transform.position, player.position);
             UpdateVignette(distance);
+            UpdateHeartbeat(distance);
         }
 
         if (timeRemaining <= 0) OnTimerEnd();
@@ -112,6 +121,7 @@ public class HunterChaseManager : MonoBehaviour
     public void StopChase()
     {
         timerRunning = false;
+        if (heartbeatSource != null) heartbeatSource.Stop();
         if (vignette != null) vignette.intensity.value = 0f;
     }
 
@@ -126,25 +136,42 @@ public class HunterChaseManager : MonoBehaviour
 
     void UpdateVignette(float distance)
     {
-        if (vignette == null) return;
-
-        if (distance <= vignetteNearDistance)
-        {
-            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, maxVignetteStrength, Time.deltaTime * 5f);
-            vignette.color.value = vignetteColor;
-        }
-        else
-        {
-            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0f, Time.deltaTime * 3f);
-        }
+        float t = 1f - Mathf.InverseLerp(vignetteDangerDistance, vignetteNearDistance, distance);
+        float targetStrength = Mathf.Lerp(0f, maxVignetteStrength, t);
+        
+        vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, targetStrength, Time.deltaTime * 5f);
+        vignette.color.value = vignetteColor;
     }
+
+    void UpdateHeartbeat(float distance)
+{
+    if (heartbeatClip == null || heartbeatSource == null) return;
+
+    heartbeatTimer -= Time.deltaTime;
+
+    if (heartbeatTimer <= 0f)
+    {
+        // Calculate interval and volume based on distance
+        float t = 1f - Mathf.InverseLerp(vignetteDangerDistance, vignetteNearDistance, distance);
+        float interval = Mathf.Lerp(heartbeatFarInterval, heartbeatNearInterval, t);
+        float volume = Mathf.Lerp(0.2f, 1.0f, t);
+
+        heartbeatSource.volume = volume;
+        heartbeatSource.PlayOneShot(heartbeatClip);
+        heartbeatTimer = interval;
+    }
+}
 
     void OnTimerEnd()
     {
         timerRunning = false;
+        if (heartbeatSource != null) heartbeatSource.Stop();
         if (vignette != null) vignette.intensity.value = 0f;
-        
+
         if (hunter != null)
+        {
             hunter.TriggerShoot();
+            failDialogue.TriggerDialogue();
+        }
     }
 }
