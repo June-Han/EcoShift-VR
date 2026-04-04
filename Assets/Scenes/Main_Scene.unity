@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 225491150}
   - component: {fileID: 225491151}
   - component: {fileID: 225491152}
+  - component: {fileID: 225491153}
   m_Layer: 6
   m_Name: XR Origin (VR)
   m_TagString: Player
@@ -1676,7 +1677,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharkThreatStatus
   maxLives: 3
+  totalTime: 60
+  timerText: {fileID: 0}
   livesUI: {fileID: 0}
+  hapticAmplitude: 0.8
+  hapticDuration: 0.5
+  survivedDialogue: {fileID: 0}
+  gameOverDialogue: {fileID: 0}
+--- !u!114 &225491153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225491137}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cd209466c1f9145b4a3aeb056d7ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterClamp
+  maxWaterHeight: 30
+  xrCamera: {fileID: 2076455091}
 --- !u!1001 &237891506
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -103,13 +103,13 @@ public class DialogueTrigger : MonoBehaviour
             return;
         }
 
-        // 2. Safety Override: If the UI was forcefully closed or disabled, reset our lock!
+        // Safety Override: If the UI was forcefully closed or disabled, reset our lock!
         if (dialogueManager != null && !dialogueManager.gameObject.activeInHierarchy)
         {
             isCurrentlyPlaying = false;
         }
 
-        // 3. Protect against double-clicks while the text is actively on screen
+        // Protect against double-clicks while the text is actively on screen
         if (isCurrentlyPlaying) 
         {
             Debug.Log($"[{gameObject.name}] Dialogue is actively playing on screen. Ignoring extra click.");
@@ -138,5 +138,11 @@ public class DialogueTrigger : MonoBehaviour
         {
             Debug.LogWarning("Dialogue Manager not assigned on " + gameObject.name);
         }
+    }
+
+    //A helper method if you ever need to reset the trigger via code
+    public void ResetTrigger()
+    {
+        hasTriggered = false;
     }
 }

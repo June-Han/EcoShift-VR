@@ -49,6 +49,9 @@ public class SceneChanger : MonoBehaviour
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
+
+        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
+        if (waterClamp != null) waterClamp.enabled = true;
         
         if (breathingBubbles != null)
         {
@@ -90,6 +93,9 @@ public class SceneChanger : MonoBehaviour
         {
             sharkThreatStatus.enabled = true;
         }
+
+        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
+        if (waterClamp != null) waterClamp.enabled = true;
 
         if (breathingBubbles != null)
         {
