@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e5fee9b5aa12ef40a16725386f2b2b6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e5fee9b5aa12ef40a16725386f2b2b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +63,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0e5fee9b5aa12ef40a16725386f2b2b6, type: 3}
       propertyPath: m_Name
       value: Net
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e5fee9b5aa12ef40a16725386f2b2b6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e5fee9b5aa12ef40a16725386f2b2b6, type: 3}
+      propertyPath: m_TagString
+      value: FishNet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

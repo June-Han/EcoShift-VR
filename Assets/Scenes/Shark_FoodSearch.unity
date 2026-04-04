@@ -8834,7 +8834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b6bfd168846418fafcc36b48f1df14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DistortionManager
-  postProcessVolume: {fileID: 0}
+  postProcessVolume: {fileID: 18410317}
   vignetteStrength: 0.7
   duration: 2
   vignetteColor: {r: 1, g: 0, b: 0, a: 1}
@@ -11886,7 +11886,7 @@ GameObject:
   - component: {fileID: 2001806751}
   - component: {fileID: 2001806750}
   - component: {fileID: 2001806749}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

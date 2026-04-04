@@ -49,7 +49,18 @@ public class ScoreManager : MonoBehaviour
         if (currentScore >= maxScore) OnGameComplete();
     }
 
-    void UpdateScoreUI() => scoreText.text = $"{currentScore}/{maxScore}";
+    void UpdateScoreUI()
+    {
+        // Safety check to prevent NullReferenceExceptions
+        if (scoreText != null)
+        {
+            scoreText.text = $"{currentScore}/{maxScore}";
+        }
+        else
+        {
+            Debug.LogWarning("ScoreManager: Tried to update score, but scoreText is missing!");
+        }
+    }
 
     void OnGameComplete()
     {

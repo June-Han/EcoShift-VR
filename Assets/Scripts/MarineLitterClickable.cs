@@ -5,12 +5,13 @@ public class MarineLitterClickable : MonoBehaviour
     [Tooltip("Drag a DialogueTrigger object here for first-click dialogue")]
     [HideInInspector]
     public DialogueTrigger firstClickDialogue;
+    public AudioClip clickSound;
     private static bool hasTriggeredDialogue;
 
     void Start()
     {
         // Find the GameObject in the scene named exactly "PollutionDialogue"
-        GameObject dialogueObj = GameObject.Find("PollutionDialogue");
+        GameObject dialogueObj = GameObject.Find("Dialogues/PollutionDialogue");
 
         // If we found it, grab the DialogueTrigger script off of it!
         if (dialogueObj != null)
@@ -25,10 +26,15 @@ public class MarineLitterClickable : MonoBehaviour
 
     public void OnClicked()
     {
+        if (clickSound != null)
+        {
+            AudioSource.PlayClipAtPoint(clickSound, transform.position);
+        }
+
         if (!hasTriggeredDialogue && firstClickDialogue != null)
         {
             firstClickDialogue.TriggerDialogue();
-            hasTriggeredDialogue = true;
+            //hasTriggeredDialogue = true;
         }
         
         if (DistortionManager.Instance != null)

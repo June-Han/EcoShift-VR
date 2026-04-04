@@ -52,14 +52,30 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32dbcb94073f3c43b1c702f0b66329f, type: 2}
+    - target: {fileID: -3601926416753101157, guid: c5970e57284ae464795241394794c14f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5970e57284ae464795241394794c14f, type: 3}
       propertyPath: m_Name
       value: Soda can 1 orange dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c5970e57284ae464795241394794c14f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852240192685336629, guid: c5970e57284ae464795241394794c14f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3790146118957581895, guid: c5970e57284ae464795241394794c14f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f32dbcb94073f3c43b1c702f0b66329f, type: 2}
+    - target: {fileID: 6865013035423394713, guid: c5970e57284ae464795241394794c14f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8837066270722464989, guid: c5970e57284ae464795241394794c14f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -80,7 +96,73 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c5970e57284ae464795241394794c14f, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7748754349073265657}
+    - targetCorrespondingSourceObject: {fileID: 2852240192685336629, guid: c5970e57284ae464795241394794c14f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8071740683483835411}
+    - targetCorrespondingSourceObject: {fileID: 6865013035423394713, guid: c5970e57284ae464795241394794c14f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6904234863000579938}
+    - targetCorrespondingSourceObject: {fileID: -3601926416753101157, guid: c5970e57284ae464795241394794c14f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4863684623953417453}
   m_SourcePrefab: {fileID: 100100000, guid: c5970e57284ae464795241394794c14f, type: 3}
+--- !u!1 &3397249367263722752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3601926416753101157, guid: c5970e57284ae464795241394794c14f, type: 3}
+  m_PrefabInstance: {fileID: 7000308291003304859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4863684623953417453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397249367263722752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
+--- !u!1 &4495572877104324610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6865013035423394713, guid: c5970e57284ae464795241394794c14f, type: 3}
+  m_PrefabInstance: {fileID: 7000308291003304859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6904234863000579938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4495572877104324610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
+--- !u!1 &5094457499824726958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2852240192685336629, guid: c5970e57284ae464795241394794c14f, type: 3}
+  m_PrefabInstance: {fileID: 7000308291003304859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8071740683483835411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5094457499824726958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!1 &7919437681714820810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c5970e57284ae464795241394794c14f, type: 3}
@@ -210,3 +292,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
   firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4050269991504875447}
   - component: {fileID: 2721093269759083596}
   - component: {fileID: 7137181733722458137}
-  m_Layer: 0
+  - component: {fileID: 5849714165062517820}
+  m_Layer: 3
   m_Name: Bottle_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +91,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5849714165062517820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231895247471114042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!1 &2703002897084580735
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +116,8 @@ GameObject:
   - component: {fileID: 5670321132588607486}
   - component: {fileID: 3788562589692186508}
   - component: {fileID: 81189354506112196}
-  m_Layer: 0
+  - component: {fileID: 2232425050262764087}
+  m_Layer: 3
   m_Name: Bottle_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,6 +196,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2232425050262764087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703002897084580735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!1 &5238747090689435575
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +221,8 @@ GameObject:
   - component: {fileID: 6729257829617609939}
   - component: {fileID: 2206534490638563606}
   - component: {fileID: 8578608233919366586}
-  m_Layer: 0
+  - component: {fileID: 2614340273652979404}
+  m_Layer: 3
   m_Name: Bottle_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +301,20 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2614340273652979404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238747090689435575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9716f9b7aad23db45890d0f0e57d162c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
+  firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!1 &8905188275688591646
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +329,7 @@ GameObject:
   - component: {fileID: 5940224525881130119}
   - component: {fileID: 4318614459784961542}
   - component: {fileID: 8728041487509580219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottle 1 glass dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,3 +505,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MarineLitterClickable
   firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}

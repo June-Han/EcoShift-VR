@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.InputSystem;
+using UnityEngine.AI;
 
 
 public class RayInteractorClickHandler : MonoBehaviour
@@ -113,14 +114,23 @@ public class RayInteractorClickHandler : MonoBehaviour
                 return;
             }
 
-            // // Try to get DebrisClickable component (marine scene)
-            // DebrisClickable debris = hit.collider.GetComponent<DebrisClickable>();
-            // if (debris != null)
-            // {
-            //     Debug.Log("Debris clicked!");
-            //     debris.OnClicked();
-            //     return;
-            // }
+            // Try to get DebrisClickable component (marine scene) - Fish Net
+            MarineDebrisClickable marinedebris = hit.collider.GetComponent<MarineDebrisClickable>();
+            if (marinedebris != null)
+            {
+                Debug.Log("Underwater Debris clicked!");
+                marinedebris.OnClicked();
+                return;
+            }
+            
+            // Try to get LitterClickable component (marine scene) - Litter
+            MarineLitterClickable marinelitter = hit.collider.GetComponent<MarineLitterClickable>();
+            if (marinelitter != null)
+            {
+                Debug.Log("Underwater Litter clicked!");
+                marinelitter.OnClicked();
+                return;
+            }
 
             Debug.LogWarning($"Hit object {hit.collider.gameObject.name} has no clickable component!");
         }

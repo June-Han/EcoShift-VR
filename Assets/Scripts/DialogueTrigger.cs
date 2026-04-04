@@ -21,6 +21,9 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    // Safety lock to prevent spam-triggering if the player wiggles on the boundary
+    private bool isCurrentlyPlaying = false;
+
     private void Start()
     {
         if (dialogueManager == null)
@@ -73,8 +76,14 @@ public class DialogueTrigger : MonoBehaviour
             }
         }
 
-        if (isPlayer && !hasTriggered)
+        if (isPlayer)
         {
+            // If we only want it once, and it already fired, stop here.
+            if (triggerOnce && hasTriggered) return;
+
+            // If the dialogue is already active on the screen, don't restart it.
+            if (isCurrentlyPlaying) return;
+
             TriggerDialogue();
         }
         else if (!hasTriggered)
@@ -87,15 +96,43 @@ public class DialogueTrigger : MonoBehaviour
     // Public method to be called by events or other scripts
     public void TriggerDialogue()
     {
-        if (triggerOnce && hasTriggered) return;
+        // If it's a one-time trigger and we've already fired it, do nothing.
+        if (triggerOnce && hasTriggered) 
+        {
+            Debug.Log($"[{gameObject.name}] TriggerOnce is true and has already fired. Ignoring click.");
+            return;
+        }
+
+        // 2. Safety Override: If the UI was forcefully closed or disabled, reset our lock!
+        if (dialogueManager != null && !dialogueManager.gameObject.activeInHierarchy)
+        {
+            isCurrentlyPlaying = false;
+        }
+
+        // 3. Protect against double-clicks while the text is actively on screen
+        if (isCurrentlyPlaying) 
+        {
+            Debug.Log($"[{gameObject.name}] Dialogue is actively playing on screen. Ignoring extra click.");
+            return;
+        }
 
         if (dialogueManager != null)
         {
+            // Lock the trigger so spam-clicking doesn't restart the text
+            isCurrentlyPlaying = true;
+            hasTriggered = true;
+            
+            Debug.Log($"[{gameObject.name}] Sending sentences to Dialogue Manager...");
+
             // Pass a callback to trigger the event when dialogue ends
             dialogueManager.ShowDialogue(sentences, () => {
+                
+                // This unlocks the object so it can be clicked again!
+                Debug.Log($"[{gameObject.name}] Dialogue finished! Unlocking object for next click.");
+                isCurrentlyPlaying = false; 
+                
                 if(onDialogueFinished != null) onDialogueFinished.Invoke();
             });
-            hasTriggered = true;
         }
         else
         {

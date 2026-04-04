@@ -55,11 +55,22 @@ public class TrashSpawner : MonoBehaviour
                 randomPoint.z * (spawnAreaSize.z / 2f)
             );
 
-            // Give it a random starting rotation so they don't look uniform
-            Quaternion randomRot = Random.rotation;
+            Quaternion spawnRot;
+            
+            // Check the prefab's tag before we spawn it!
+            if (randomPrefab.CompareTag("FishNet"))
+            {
+                // Force the exact -90 degree rotation so it lays correctly
+                spawnRot = Quaternion.Euler(-90f, 0f, 0f); 
+            }
+            else
+            {
+                // Normal trash gets a totally random tumble
+                spawnRot = Random.rotation;
+            }
 
             // Spawn the object and make it a "child" of the Spawner to keep the hierarchy clean
-            GameObject spawnedTrash = Instantiate(randomPrefab, randomPos, randomRot, transform);
+            GameObject spawnedTrash = Instantiate(randomPrefab, randomPos, spawnRot, transform);
 
             // // Generate a random number between your min and max scale
             // float randomScale = Random.Range(minScale, maxScale);

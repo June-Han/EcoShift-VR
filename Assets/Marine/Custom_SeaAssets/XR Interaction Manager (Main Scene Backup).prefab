@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7655484521718299505}
   - component: {fileID: 8753377218977472155}
   m_Layer: 6
-  m_Name: XR Interaction Manager
+  m_Name: XR Interaction Manager (Main Scene Backup)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

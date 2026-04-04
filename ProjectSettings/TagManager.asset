@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Score
   - Timer
+  - FishNet
   layers:
   - Default
   - TransparentFX
