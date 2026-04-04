@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class DistortionManager : MonoBehaviour
 {
@@ -17,38 +18,106 @@ public class DistortionManager : MonoBehaviour
 
     private Vignette vignette;
 
-    // void Awake()
-    // {
-    //     if (Instance == null) Instance = this;
-    //     else Destroy(gameObject);
-
-    //     postProcessVolume.profile.TryGet(out vignette);
-    // }
+    void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     void Start()
     {
-        // Moved from Awake to Start to ensure the Volume is fully loaded
+        if (Instance == null) Instance = this;
+
+        if (postProcessVolume == null)
+        {
+            // Search ALL loaded scenes for a Volume (Main_Scene persists and has one)
+            postProcessVolume = FindVolumeAcrossScenes();
+        }
+
+        if (postProcessVolume == null)
+        {
+            // Still nothing — create a Global Volume with a fresh profile that has Vignette
+            Debug.LogWarning("[DistortionManager] No Volume found in any loaded scene. Creating one.");
+            postProcessVolume = CreateGlobalVolume();
+        }
+
+        SetupVignette();
+    }
+
+    private void SetupVignette()
+    {
+        if (postProcessVolume == null) return;
+
+        // If the profile already has a Vignette, use it
         if (postProcessVolume.profile.TryGet(out vignette))
         {
-            // Force the master switch ON, just in case it was disabled in the Inspector!
-            vignette.active = true; 
+            vignette.active = true;
             vignette.color.overrideState = true;
             vignette.center.overrideState = true;
             vignette.intensity.overrideState = true;
             vignette.smoothness.overrideState = true;
             vignette.rounded.overrideState = true;
-            
-            // Set it to 0 immediately so the screen starts clear
+
             vignette.intensity.Override(0f);
+            Debug.Log("[DistortionManager] Found existing Vignette on Volume.");
         }
         else
         {
-            Debug.LogError("DistortionManager could not find Vignette in the Volume Profile!");
+            // Profile exists but has no Vignette — add one
+            vignette = postProcessVolume.profile.Add<Vignette>(overrides: true);
+            vignette.intensity.Override(0f);
+            vignette.color.Override(vignetteColor);
+            vignette.smoothness.Override(0.4f);
+            Debug.Log("[DistortionManager] Added Vignette to existing Volume profile.");
         }
+    }
+
+    /// <summary>
+    /// Searches every loaded scene for a Volume component (covers persistent Main_Scene).
+    /// </summary>
+    private Volume FindVolumeAcrossScenes()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (!scene.isLoaded) continue;
+
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                Volume vol = root.GetComponentInChildren<Volume>(true);
+                if (vol != null)
+                {
+                    Debug.Log($"[DistortionManager] Found Volume in scene '{scene.name}' on '{vol.gameObject.name}'.");
+                    return vol;
+                }
+            }
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Creates a new Global Volume with a VolumeProfile containing a Vignette override.
+    /// </summary>
+    private Volume CreateGlobalVolume()
+    {
+        GameObject volGO = new GameObject("Global Volume (DistortionManager)");
+        volGO.transform.SetParent(transform, false);
+
+        Volume vol = volGO.AddComponent<Volume>();
+        vol.isGlobal = true;
+        vol.priority = 10; // higher priority so it overrides other volumes
+        vol.profile = ScriptableObject.CreateInstance<VolumeProfile>();
+
+        return vol;
     }
 
     public void ApplyDistortion()
     {
+        if (vignette == null)
+        {
+            Debug.LogWarning("[DistortionManager] ApplyDistortion called but no Vignette available.");
+            return;
+        }
         StopAllCoroutines();
         StartCoroutine(VignetteRoutine());
     }

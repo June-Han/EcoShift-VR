@@ -20,6 +20,9 @@ public class HandSwapper : MonoBehaviour
     public GameObject leftFinPrefab;
     public GameObject rightFinPrefab;
 
+    [Header("Marine Threat: Lives UI")]
+    public GameObject livesUIPrefab;
+
     // Call this function for terrestrial to swap handles
     public void EquipPaws()
     {
@@ -36,6 +39,7 @@ public class HandSwapper : MonoBehaviour
 
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(false);
         if (timerUiPrefab != null) timerUiPrefab.SetActive(false);
+        if (livesUIPrefab != null) livesUIPrefab.SetActive(false);
     }
 
 
@@ -65,6 +69,7 @@ public class HandSwapper : MonoBehaviour
         rightPawPrefab.SetActive(false);
 
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(false);
+        if (livesUIPrefab != null) livesUIPrefab.SetActive(false);
     }
 
     // Call this for Marine FoodSearch scenes that need the score counter
@@ -72,6 +77,13 @@ public class HandSwapper : MonoBehaviour
     {
         EquipFins();
         if (scoreUIPrefab != null) scoreUIPrefab.SetActive(true);
+    }
+
+    // Call this for the Marine Threat scene that needs the hearts/lives display
+    public void EquipFinsWithLivesUI()
+    {
+        EquipFins();
+        if (livesUIPrefab != null) livesUIPrefab.SetActive(true);
     }
 }
 

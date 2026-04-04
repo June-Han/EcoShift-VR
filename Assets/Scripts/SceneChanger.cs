@@ -80,7 +80,7 @@ public class SceneChanger : MonoBehaviour
     public void LoadSharkThreatScene()
     {
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
-        if (handSwapper != null) handSwapper.EquipFinsWithScoreUI();
+        if (handSwapper != null) handSwapper.EquipFinsWithLivesUI();
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
