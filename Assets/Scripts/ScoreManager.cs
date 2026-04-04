@@ -62,6 +62,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public int GetPlayerScore()
+    {
+        return currentScore;
+    }
+
     void OnGameComplete()
     {
         if (gameCompleteDialogue != null)
