@@ -85,5 +85,27 @@ public class HandSwapper : MonoBehaviour
         EquipFins();
         if (livesUIPrefab != null) livesUIPrefab.SetActive(true);
     }
+
+    /// <summary>
+    /// Restores default VR controllers and hides all animal hands + UI overlays.
+    /// Called when returning to Main_Scene (menu).
+    /// </summary>
+    public void ResetToDefaultHands()
+    {
+        // Show default controllers
+        if (leftController != null) leftController.SetActive(true);
+        if (rightController != null) rightController.SetActive(true);
+
+        // Hide all animal hands
+        if (leftPawPrefab != null) leftPawPrefab.SetActive(false);
+        if (rightPawPrefab != null) rightPawPrefab.SetActive(false);
+        if (leftFinPrefab != null) leftFinPrefab.SetActive(false);
+        if (rightFinPrefab != null) rightFinPrefab.SetActive(false);
+
+        // Hide all gameplay UI
+        if (scoreUIPrefab != null) scoreUIPrefab.SetActive(false);
+        if (timerUiPrefab != null) timerUiPrefab.SetActive(false);
+        if (livesUIPrefab != null) livesUIPrefab.SetActive(false);
+    }
 }
 

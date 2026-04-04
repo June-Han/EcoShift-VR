@@ -7780,6 +7780,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7013560751968897111, guid: b138238ae2a5c484c996307e08505519, type: 3}
   m_PrefabInstance: {fileID: 1755803570}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1800123001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800123003}
+  - component: {fileID: 1800123002}
+  m_Layer: 0
+  m_Name: GameOverDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1800123002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800123001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueManager: {fileID: 0}
+  sentences:
+  - Oh no, you are caught in the fishing nets! Bycatch like this is a serious threat
+    to blue shark populations around the world.
+  - Bycatch is the unintentional capture of non-target species in fishing gear. Blue
+    sharks are one of the most frequently caught bycatch species worldwide, with
+    millions caught each year.
+  - We can help reduce bycatch by choosing sustainably sourced seafood, supporting
+    fisheries that use shark-safe gear, and spreading awareness about bycatch.
+  - The experience is over. You may remove your headset and speak to the administrators
+    for further instructions. Thank you!
+  triggerOnce: 0
+  triggerOnStart: 0
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1800123003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800123001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1804208267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8024,6 +8084,66 @@ Transform:
   - {fileID: 830541935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1870475609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870475611}
+  - component: {fileID: 1870475610}
+  m_Layer: 0
+  m_Name: SurvivedDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870475610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870475609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueManager: {fileID: 0}
+  sentences:
+  - Well done! You survived the bycatch threat and escaped the fishing nets. Your
+    awareness and quick reflexes kept you safe.
+  - Bycatch is the unintentional capture of non-target species in fishing gear. Blue
+    sharks are one of the most frequently caught bycatch species worldwide, with
+    millions caught each year.
+  - We can help reduce bycatch by choosing sustainably sourced seafood, supporting
+    fisheries that use shark-safe gear, and spreading awareness about bycatch.
+  - The experience is over. You may remove your headset and speak to the administrators
+    for further instructions. Thank you!
+  triggerOnce: 0
+  triggerOnStart: 0
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1870475611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870475609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1906376540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8116,13 +8236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SharkThreatIntro
   boatTransform: {fileID: 0}
-  netDropPoint: {fileID: 0}
   boatManager: {fileID: 0}
   fadeDuration: 0.6
-  boatLookDuration: 3
-  netLookDuration: 4
-  netPrefab: {fileID: 0}
-  netSpawnHeight: 25
 --- !u!4 &1919250430
 Transform:
   m_ObjectHideFlags: 0
@@ -8735,3 +8850,5 @@ SceneRoots:
   - {fileID: 1959102880}
   - {fileID: 2043927809}
   - {fileID: 1919250430}
+  - {fileID: 1870475611}
+  - {fileID: 1800123003}

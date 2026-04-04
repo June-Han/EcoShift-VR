@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -31,6 +32,13 @@ public class SharkThreatStatus : MonoBehaviour
     [Tooltip("How long the vibration lasts in seconds.")]
     public float hapticDuration = 0.5f;
 
+    [Header("End-Game Dialogues")]
+    [Tooltip("Auto-created if not assigned. Edit sentences on the child DialogueTrigger.")]
+    public DialogueTrigger survivedDialogue;
+
+    [Tooltip("Auto-created if not assigned. Edit sentences on the child DialogueTrigger.")]
+    public DialogueTrigger gameOverDialogue;
+
     void Start()
     {
         currentLives = maxLives;
@@ -58,6 +66,11 @@ public class SharkThreatStatus : MonoBehaviour
         {
             timerText = CreateTimerOnLivesCanvas();
         }
+
+        if (survivedDialogue == null)
+            Debug.LogWarning("[SharkThreatStatus] No SurvivedDialogue assigned. Run Tools → EcoShift → Create Shark End-Game Dialogues.");
+        if (gameOverDialogue == null)
+            Debug.LogWarning("[SharkThreatStatus] No GameOverDialogue assigned. Run Tools → EcoShift → Create Shark End-Game Dialogues.");
 
         if (livesUI == null)
             Debug.LogWarning("[SharkThreatStatus] No LivesUI found.");
@@ -119,7 +132,7 @@ public class SharkThreatStatus : MonoBehaviour
     private void OnTimerSurvived()
     {
         Debug.Log("[SharkThreatStatus] Timer ended — the shark survived!");
-        // TODO: trigger success dialogue / transition to next scene
+        ShowEndGameDialogue(true);
     }
 
     /// <summary>
@@ -187,7 +200,66 @@ public class SharkThreatStatus : MonoBehaviour
             timerText.text = "0s";
 
         Debug.LogError("THE SHARK HAS BEEN CAPTURED! GAME OVER.");
-        // TODO: Game Over UI / scene transition
+        ShowEndGameDialogue(false);
+    }
+
+    /// <summary>
+    /// Triggers the appropriate DialogueTrigger (survived or game-over).
+    /// Wire each trigger's onDialogueFinished → LoadMainMenu() in the Inspector,
+    /// or it will auto-load Main_Scene if no event is wired.
+    /// </summary>
+    private void ShowEndGameDialogue(bool survived)
+    {
+        DialogueTrigger trigger = survived ? survivedDialogue : gameOverDialogue;
+
+        // If not assigned (e.g. SharkThreatStatus is on the persistent XR Origin
+        // but the DialogueTriggers live in the Shark_Threat scene), find by name
+        if (trigger == null)
+        {
+            string searchName = survived ? "SurvivedDialogue" : "GameOverDialogue";
+            GameObject found = GameObject.Find(searchName);
+            if (found != null)
+                trigger = found.GetComponent<DialogueTrigger>();
+        }
+
+        if (trigger != null)
+        {
+            StopBoatAndClearNets();
+            trigger.onDialogueFinished.AddListener(ReturnToMainMenu);
+            trigger.TriggerDialogue();
+        }
+        else
+        {
+            Debug.LogWarning($"[SharkThreatStatus] No {(survived ? "SurvivedDialogue" : "GameOverDialogue")} found — returning to main menu.");
+            ReturnToMainMenu();
+        }
+    }
+
+    /// <summary>
+    /// Disables the poacher boat so it stops chasing and dropping nets,
+    /// and destroys any nets already in the scene.
+    /// </summary>
+    private void StopBoatAndClearNets()
+    {
+        PoacherBoatManager boat = FindFirstObjectByType<PoacherBoatManager>();
+        if (boat != null)
+            boat.enabled = false;
+
+        // Destroy all existing nets in the scene
+        // Nets are instantiated from netPrefab, so find them by the prefab name
+        foreach (GameObject net in GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+        {
+            if (net.name.Contains("Net") && net.GetComponent<Collider>() != null)
+                Destroy(net);
+        }
+
+        Debug.Log("[SharkThreatStatus] Boat stopped and nets cleared.");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Debug.Log("[SharkThreatStatus] End-game dialogue finished — returning to main menu.");
+        SceneManager.LoadScene("Main_Scene", LoadSceneMode.Single);
     }
 
     private IEnumerator VibrateControllers()
