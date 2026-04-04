@@ -13,9 +13,11 @@ public class PoacherBoatManager : MonoBehaviour
     
     [Tooltip("The Net prefab to spawn into the water")]
     [SerializeField] private GameObject netPrefab;
-    
+    public GameObject NetPrefab => netPrefab;
+
     [Tooltip("An empty GameObject placed at the back of the boat where nets fall from")]
     [SerializeField] private Transform netDropPoint;
+    public Transform NetDropPoint => netDropPoint;
 
     [Header("Settings")]
     [Tooltip("How close the shark must be for the boat to notice")]

@@ -74,12 +74,35 @@ public class DialogueManager : MonoBehaviour {
 
     private void ResetChildRectTransforms(Transform parent) {
         foreach (Transform child in parent) {
+            // Skip NextHint — preserve its designed position within the panel
+            if (child.name == "NextHint") continue;
+
             RectTransform childRT = child.GetComponent<RectTransform>();
             if (childRT != null) {
                 childRT.anchoredPosition = Vector2.zero;
             }
             // Don't recurse deeper — only reset immediate children of the Canvas
             // (InnerPanel, Buttons, etc. should keep their layout-relative positions)
+        }
+
+        // Ensure NextHint is properly positioned: bottom-right of the panel, visible
+        Transform nextHint = parent.Find("NextHint");
+        if (nextHint != null) {
+            RectTransform hintRT = nextHint.GetComponent<RectTransform>();
+            if (hintRT != null) {
+                // Anchor at bottom-right, positioned inside the visible panel area
+                hintRT.anchorMin = new Vector2(1f, 0f);
+                hintRT.anchorMax = new Vector2(1f, 0f);
+                hintRT.pivot = new Vector2(1f, 0f);
+                hintRT.anchoredPosition = new Vector2(-20f, 10f); // 20px from right, 10px above bottom
+                hintRT.sizeDelta = new Vector2(200f, 40f);
+            }
+            // Make sure the text is visible
+            TMPro.TextMeshProUGUI hintText = nextHint.GetComponent<TMPro.TextMeshProUGUI>();
+            if (hintText != null) {
+                hintText.enabled = true;
+                hintText.alpha = 1f;
+            }
         }
     }
 
