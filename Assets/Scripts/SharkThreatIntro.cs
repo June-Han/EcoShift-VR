@@ -76,8 +76,14 @@ public class SharkThreatIntro : MonoBehaviour
 
     private void EnableGameplay()
     {
+        // Start the boat AI
         if (boatManager != null)
             boatManager.enabled = true;
+
+        // Start the countdown timer
+        SharkThreatStatus status = FindFirstObjectByType<SharkThreatStatus>();
+        if (status != null)
+            status.StartTimer();
     }
 
     /// <summary>
