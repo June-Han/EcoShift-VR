@@ -267,11 +267,15 @@ public class FishTargetSystem : MonoBehaviour
     {
         if (playerCamera == null) return;
 
-        // Stop all targeting during game over
-        if (ScoreManager.Instance != null && ScoreManager.Instance.GetPlayerScore() < 0)
+        // Stop all targeting during game over or game complete
+        if (ScoreManager.Instance != null)
         {
-            ClearLock();
-            return;
+            int score = ScoreManager.Instance.GetPlayerScore();
+            if (score < 0 || score >= ScoreManager.Instance.maxScore)
+            {
+                ClearLock();
+                return;
+            }
         }
 
         // Late-subscribe if ScoreManager wasn't ready at Start
