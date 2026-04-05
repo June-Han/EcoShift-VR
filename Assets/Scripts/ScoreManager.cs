@@ -48,6 +48,12 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreUI();
         if (currentScore >= maxScore) OnGameComplete();
     }
+    
+    public void DecreaseScore()
+    {
+        currentScore = Mathf.Max(currentScore - 3, 0);
+        UpdateScoreUI();
+    }
 
     void UpdateScoreUI()
     {

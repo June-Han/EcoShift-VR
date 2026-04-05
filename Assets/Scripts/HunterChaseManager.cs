@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Movement;
 
 public class HunterChaseManager : MonoBehaviour
 {
@@ -173,5 +175,43 @@ public class HunterChaseManager : MonoBehaviour
             hunter.TriggerShoot();
             failDialogue.TriggerDialogue();
         }
+    }
+
+    /// <summary>
+    /// Pause the game: stops the timer, hunter movement, and player movement
+    /// </summary>
+    public void PauseGame()
+    {
+        timerRunning = false;
+        player.GetComponent<ContinuousMoveProvider>().enabled = false;
+        
+        // Stop hunter movement
+        if (hunter != null && hunter.GetComponent<NavMeshAgent>() != null)
+        {
+            hunter.GetComponent<NavMeshAgent>().enabled = false;
+        }
+        // Stop heartbeat sound
+        if (heartbeatSource != null) heartbeatSource.Stop();
+        
+        Debug.Log("Game paused");
+    }
+
+    /// <summary>
+    /// Resume the game: resumes the timer, hunter movement, and player movement
+    /// </summary>
+    public void ResumeGame()
+    {
+        player.GetComponent<ContinuousMoveProvider>().enabled = true;
+        
+        // Resume hunter movement
+        if (hunter != null && hunter.GetComponent<NavMeshAgent>() != null)
+        {
+            hunter.GetComponent<NavMeshAgent>().enabled = true;
+        }
+        
+        // Resume timer
+        timerRunning = true;
+        
+        Debug.Log("Game resumed");
     }
 }

@@ -14,6 +14,11 @@ public class LitterClickable : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(clickSound, transform.position);
         }
+
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.DecreaseScore();
+        }
         
         if (!hasTriggeredDialogue && firstClickDialogue != null)
         {
