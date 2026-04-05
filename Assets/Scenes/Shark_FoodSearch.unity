@@ -3423,7 +3423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -4207,7 +4207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -5031,7 +5031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -5650,7 +5650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -6280,7 +6280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -6942,7 +6942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -7644,7 +7644,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 328
 --- !u!1 &1225585394
 GameObject:
   m_ObjectHideFlags: 0
@@ -7805,7 +7805,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 328
 --- !u!1001 &1251036206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8135,7 +8135,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 328
 --- !u!1001 &1334950663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8170,7 +8170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -8770,6 +8770,10 @@ PrefabInstance:
       propertyPath: _alignmentDistance
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
+      propertyPath: _obstacleMask.m_Bits
+      value: 328
+      objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
       value: Flock (14)
@@ -9327,7 +9331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -10350,7 +10354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -10704,7 +10708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -11063,7 +11067,7 @@ MonoBehaviour:
   _obstacleWeight: 25
   _obstacleMask:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 328
 --- !u!1001 &1918111983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11368,7 +11372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -11735,7 +11739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
@@ -13272,7 +13276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366317913306327720, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: _obstacleMask.m_Bits
-      value: 72
+      value: 328
       objectReference: {fileID: 0}
     - target: {fileID: 3734710712711710319, guid: 73b9b599d152ffd4f99a532427d9cdb3, type: 3}
       propertyPath: m_Name
