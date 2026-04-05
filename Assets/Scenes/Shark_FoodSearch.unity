@@ -683,10 +683,6 @@ MonoBehaviour:
   - "Congrats! You\u2019ve found enough food.\r\n"
   - "Fun fact: Blue Sharks are one of the greatest travellers in the ocean \u2014
     a single shark can migrate over 9,000 kilometres across the Atlantic!\r\n"
-  - 'Yet despite their range, an estimated 20 million Blue Sharks are killed each
-    year, mostly as bycatch.
-
-'
   - Let's explore the area. Search for a cave marked by luminescence at the entrance.
     Enter the cave and let's see where it leads.
   triggerOnce: 1
@@ -3714,7 +3710,10 @@ MonoBehaviour:
   targetRadius: 12
   viewConeAngle: 45
   scanInterval: 0.15
-  captureDistance: 2
+  retargetDistance: 10
+  captureDistance: 3
+  misleadAtScores: 050000000700000009000000
+  trapSpawnDistance: 6
   triggerAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   arrowYOffset: 0.5
   obstacleMask:
@@ -3746,7 +3745,7 @@ GameObject:
   - component: {fileID: 651684181}
   - component: {fileID: 651684182}
   m_Layer: 0
-  m_Name: DebrisDialogue
+  m_Name: NetDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3787,9 +3786,10 @@ MonoBehaviour:
     often entangled in longlines and drift nets set for tuna and swordfish.
 
 '
-  - "Interacting with ghost nets often left blue sharks with injuries that often
-    leads to death.  \n\nHeavy points will be deducted as penalty. Reaching less
-    than 0 will result in a Game Over!]"
+  - 'Interacting with ghost nets often left blue sharks with injuries that often
+    leads to death.  '
+  - 3 points has been deducted as penalty. Reaching less than 0 will result in a
+    Game Over!
   triggerOnce: 0
   triggerOnStart: 0
   onDialogueFinished:
@@ -4008,9 +4008,12 @@ MonoBehaviour:
   dialogueManager: {fileID: 583518376}
   sentences:
   - "Blue Sharks are built for endurance \u2014 their long pectoral fins act like
-    glider wings, letting them cruise vast distances with minimal effort. They can
-    detect prey using electroreceptors called ampullae of Lorenzini."
-  - Continue hunting until we get 10 fishes!
+    glider wings, letting them cruise vast distances with minimal effort. "
+  - 'Blue Sharks detect prey using electroreceptors called ampullae of Lorenzini.
+    They function like the green arrows which serve to guide you towards potential
+    prey. '
+  - Ypu can eat any fish that you see, but be careful what you eat!Continue hunting
+    until we get 10 fishes!
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
@@ -4997,6 +5000,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 490601462324118873, guid: 7a96dd6d5a2d21445ba3453050a2f194, type: 3}
   m_PrefabInstance: {fileID: 820248296}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &821915063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821915064}
+  - component: {fileID: 821915065}
+  m_Layer: 0
+  m_Name: GameOverDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &821915064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821915063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1225585395}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &821915065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821915063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc49ac456e944f08d083b3a9f47dde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  dialogueManager: {fileID: 583518376}
+  sentences:
+  - Game Over! Unfortunately, your health has deteriorated beyond recovery as you
+    have consumed too many debris. Continue to restart the game!
+  triggerOnce: 0
+  triggerOnStart: 0
+  onDialogueFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &833416370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6768,13 +6824,15 @@ MonoBehaviour:
   dialogueManager: {fileID: 583518376}
   sentences:
   - "Careful! Blue Sharks have been found with microplastics and heavy metals like
-    mercury accumulated in their tissue. As a top predator, toxins biomagnify through
-    every level of the food chain \u2014 eventually reaching humans who consume seafood.\r\n"
-  - Blue sharks are increasingly ingesting ocean litter, including plastics, due
-    to their curious nature and role as opportunistic predators. This leads to digestive
-    damage, starvation and disruption shark's metabolism and reproductive functions.
-  - Heavy points will be deducted as penalty. Reaching less than 0 will result in
-    a Game Over!
+    mercury accumulated in their tissue. \r\n"
+  - "As a top predator, toxins biomagnify through every level of the food chain \u2014
+    eventually reaching humans who consume seafood."
+  - 'Blue sharks are increasingly ingesting ocean litter, including plastics, due
+    to their curious nature and role as opportunistic predators. '
+  - This leads to digestive damage, starvation and disruption shark's metabolism
+    and reproductive functions.
+  - 3 points have been deducted as penalty. Reaching less than 0 will result in a
+    Game Over!
   triggerOnce: 0
   triggerOnStart: 0
   onDialogueFinished:
@@ -7681,6 +7739,7 @@ Transform:
   - {fileID: 1057548569}
   - {fileID: 83084367}
   - {fileID: 651920840}
+  - {fileID: 821915064}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244583500
@@ -8391,7 +8450,8 @@ MonoBehaviour:
     shark species on Earth.
   - "Let\u2019s hunt for food! Blue Sharks are sleek, long-distance hunters that
     feed on squid, fish, and smaller sharks.\r\n"
-  - Tilt your head for direction, and use your left joystick to swim
+  - Tilt your head for direction, and use your left joystick to swim, Hold the left
+    trigger to swim faster!
   - 'Look for a school of fish, swim close and click the right trigger to eat!
 
 '
@@ -12493,6 +12553,7 @@ MonoBehaviour:
   maxScore: 10
   scoreText: {fileID: 0}
   gameCompleteDialogue: {fileID: 83084366}
+  gameOverDialogue: {fileID: 0}
 --- !u!4 &2032268561
 Transform:
   m_ObjectHideFlags: 0

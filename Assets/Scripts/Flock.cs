@@ -113,25 +113,33 @@ public class Flock : MonoBehaviour
     private void Update()
     {
         // --- THE "DEAD FISH" RESPAWN SYSTEM ---
+        // Checks for both destroyed (null) AND deactivated (eaten via FishClickable) fish.
         for (int i = 0; i < allUnits.Length; i++)
         {
-            if (allUnits[i] == null)
+            bool needsRespawn = allUnits[i] == null || !allUnits[i].gameObject.activeInHierarchy;
+            if (needsRespawn)
             {
+                // Clean up the deactivated fish object before spawning a replacement
+                if (allUnits[i] != null)
+                {
+                    Destroy(allUnits[i].gameObject);
+                    allUnits[i] = null;
+                }
+
                 // Calculate a random spawn position near the Flock Manager
                 Vector3 randomOffset = UnityEngine.Random.insideUnitSphere * (boundsDistance * 0.5f);
                 Vector3 spawnPos = transform.position + randomOffset;
                 Quaternion spawnRot = Quaternion.Euler(0f, UnityEngine.Random.Range(0f, 360f), 0f);
 
-                // Spawn the new fish! 
-                // (Since your code uses 'flockUnitPrefab', we instantiate that)
+                // Spawn the new fish!
                 var newFish = Instantiate(flockUnitPrefab, spawnPos, spawnRot);
-                
+
                 // Keep your Hierarchy clean by organizing it under the manager
                 newFish.transform.SetParent(this.transform);
 
                 // Plug the hole in the array!
                 allUnits[i] = newFish;
-                
+
                 Debug.Log("A poached fish was replaced by the ecosystem!");
             }
         }

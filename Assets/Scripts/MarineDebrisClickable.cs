@@ -10,8 +10,8 @@ public class MarineDebrisClickable : MonoBehaviour
 
     void Start()
     {
-        // Find the GameObject in the scene named exactly "PollutionDialogue"
-        GameObject dialogueObj = GameObject.Find("Dialogues/DebrisDialogue");
+        // Find the NetDialogue (only triggered by fishing net interactions)
+        GameObject dialogueObj = GameObject.Find("Dialogues/NetDialogue");
 
         // If we found it, grab the DialogueTrigger script off of it!
         if (dialogueObj != null)
@@ -20,11 +20,15 @@ public class MarineDebrisClickable : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Could not find the PollutionDialogue in the scene!");
+            Debug.LogWarning("MarineDebrisClickable: Could not find Dialogues/NetDialogue in the scene!");
         }
     }
 
-    public void OnClicked()
+    /// <summary>
+    /// Called when this debris is "eaten". Set skipScorePenalty=true if the caller
+    /// already applied the -3 penalty (e.g. FishTargetSystem handles it directly).
+    /// </summary>
+    public void OnClicked(bool skipScorePenalty = false)
     {
         if (clickSound != null)
         {
@@ -36,14 +40,20 @@ public class MarineDebrisClickable : MonoBehaviour
             firstClickDialogue.TriggerDialogue();
            //hasTriggeredDialogue = true;
         }
-        
+
         if (DistortionManager.Instance != null)
         {
             DistortionManager.Instance.ApplyDistortion();
         }
         else
         {
-            Debug.LogError("LitterClickable: CameraDistortionEffect instance not found!");
+            Debug.LogError("MarineDebrisClickable: DistortionManager instance not found!");
+        }
+
+        // Penalty for eating debris — same pattern as FishClickable.AddScore()
+        if (!skipScorePenalty)
+        {
+            ScoreManager.Instance.RemoveScore(3);
         }
 
         gameObject.SetActive(false);

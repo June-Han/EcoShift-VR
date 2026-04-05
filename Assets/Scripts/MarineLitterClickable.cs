@@ -24,7 +24,11 @@ public class MarineLitterClickable : MonoBehaviour
         }
     }
 
-    public void OnClicked()
+    /// <summary>
+    /// Called when this litter is "eaten". Set skipScorePenalty=true if the caller
+    /// already applied the -3 penalty (e.g. FishTargetSystem handles it directly).
+    /// </summary>
+    public void OnClicked(bool skipScorePenalty = false)
     {
         if (clickSound != null)
         {
@@ -36,14 +40,20 @@ public class MarineLitterClickable : MonoBehaviour
             firstClickDialogue.TriggerDialogue();
             //hasTriggeredDialogue = true;
         }
-        
+
         if (DistortionManager.Instance != null)
         {
             DistortionManager.Instance.ApplyDistortion();
         }
         else
         {
-            Debug.LogError("LitterClickable: CameraDistortionEffect instance not found!");
+            Debug.LogError("MarineLitterClickable: DistortionManager instance not found!");
+        }
+
+        // Penalty for eating litter — same pattern as FishClickable.AddScore()
+        if (!skipScorePenalty)
+        {
+            ScoreManager.Instance.RemoveScore(3);
         }
 
         gameObject.SetActive(false);
