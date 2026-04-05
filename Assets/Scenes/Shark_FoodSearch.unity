@@ -3745,7 +3745,7 @@ GameObject:
   - component: {fileID: 651684181}
   - component: {fileID: 651684182}
   m_Layer: 0
-  m_Name: DebrisDialogue
+  m_Name: NetDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3788,8 +3788,8 @@ MonoBehaviour:
 '
   - 'Interacting with ghost nets often left blue sharks with injuries that often
     leads to death.  '
-  - Heavy points will be deducted as penalty. Reaching less than 0 will result in
-    a Game Over!
+  - 3 points has been deducted as penalty. Reaching less than 0 will result in a
+    Game Over!
   triggerOnce: 0
   triggerOnStart: 0
   onDialogueFinished:
@@ -4008,9 +4008,12 @@ MonoBehaviour:
   dialogueManager: {fileID: 583518376}
   sentences:
   - "Blue Sharks are built for endurance \u2014 their long pectoral fins act like
-    glider wings, letting them cruise vast distances with minimal effort. They can
-    detect prey using electroreceptors called ampullae of Lorenzini."
-  - Continue hunting until we get 10 fishes!
+    glider wings, letting them cruise vast distances with minimal effort. "
+  - 'Blue Sharks detect prey using electroreceptors called ampullae of Lorenzini.
+    They function like the green arrows which serve to guide you towards potential
+    prey. '
+  - Ypu can eat any fish that you see, but be careful what you eat!Continue hunting
+    until we get 10 fishes!
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
@@ -6775,8 +6778,8 @@ MonoBehaviour:
     to their curious nature and role as opportunistic predators. '
   - This leads to digestive damage, starvation and disruption shark's metabolism
     and reproductive functions.
-  - Heavy points will be deducted as penalty. Reaching less than 0 will result in
-    a Game Over!
+  - 3 points have been deducted as penalty. Reaching less than 0 will result in a
+    Game Over!
   triggerOnce: 0
   triggerOnStart: 0
   onDialogueFinished:
@@ -8393,7 +8396,8 @@ MonoBehaviour:
     shark species on Earth.
   - "Let\u2019s hunt for food! Blue Sharks are sleek, long-distance hunters that
     feed on squid, fish, and smaller sharks.\r\n"
-  - Tilt your head for direction, and use your left joystick to swim
+  - Tilt your head for direction, and use your left joystick to swim, Hold the left
+    trigger to swim faster!
   - 'Look for a school of fish, swim close and click the right trigger to eat!
 
 '

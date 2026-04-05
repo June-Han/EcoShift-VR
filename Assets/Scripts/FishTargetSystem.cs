@@ -69,6 +69,9 @@ public class FishTargetSystem : MonoBehaviour
     private bool isMisleading;
     private bool pendingMislead;               // set by the score event, consumed by Update
     private GameObject[] resolvedTrapPrefabs;   // cached at Start
+    private GameObject[] netPrefabs;            // subset: tagged "FishNet" → triggers NetDialogue
+    private GameObject[] litterPrefabs;         // subset: non-net → triggers PollutionDialogue
+    private int trapSpawnCount;                 // tracks how many traps have been spawned
 
     // ─────────────────────────────────────────────────────────────────────
     // Lifecycle
@@ -188,10 +191,9 @@ public class FishTargetSystem : MonoBehaviour
     // ─────────────────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Resolves trap prefabs from multiple sources:
-    ///   1. TrashSpawner in the scene (already has prefabs wired in Inspector)
-    ///   2. Resources/TrashPrefabs folder
-    ///   3. Last resort: we'll build a primitive at spawn time
+    /// Resolves trap prefabs and splits them into net prefabs (tagged "FishNet",
+    /// triggers NetDialogue) and litter prefabs (everything else, triggers
+    /// PollutionDialogue).
     /// </summary>
     private void ResolveTrapPrefabs()
     {
@@ -201,21 +203,37 @@ public class FishTargetSystem : MonoBehaviour
         {
             resolvedTrapPrefabs = spawner.trashPrefabs;
             Debug.Log($"FishTargetSystem: Using {resolvedTrapPrefabs.Length} trap prefabs from TrashSpawner.");
-            return;
         }
-
-        // Strategy 2: Load from Resources
-        GameObject[] fromResources = Resources.LoadAll<GameObject>("TrashPrefabs");
-        if (fromResources != null && fromResources.Length > 0)
+        else
         {
-            resolvedTrapPrefabs = fromResources;
-            Debug.Log($"FishTargetSystem: Using {resolvedTrapPrefabs.Length} trap prefabs from Resources/TrashPrefabs.");
-            return;
+            // Strategy 2: Load from Resources
+            GameObject[] fromResources = Resources.LoadAll<GameObject>("TrashPrefabs");
+            if (fromResources != null && fromResources.Length > 0)
+            {
+                resolvedTrapPrefabs = fromResources;
+                Debug.Log($"FishTargetSystem: Using {resolvedTrapPrefabs.Length} trap prefabs from Resources/TrashPrefabs.");
+            }
+            else
+            {
+                resolvedTrapPrefabs = null;
+                Debug.LogWarning("FishTargetSystem: No trap prefabs found. Will use primitive fallback for traps.");
+                return;
+            }
         }
 
-        // Strategy 3: null — SpawnTrap will create a primitive fallback
-        resolvedTrapPrefabs = null;
-        Debug.LogWarning("FishTargetSystem: No trap prefabs found. Will use primitive fallback for traps.");
+        // Split into net vs non-net categories
+        var nets = new System.Collections.Generic.List<GameObject>();
+        var litter = new System.Collections.Generic.List<GameObject>();
+        for (int i = 0; i < resolvedTrapPrefabs.Length; i++)
+        {
+            if (resolvedTrapPrefabs[i].CompareTag("FishNet"))
+                nets.Add(resolvedTrapPrefabs[i]);
+            else
+                litter.Add(resolvedTrapPrefabs[i]);
+        }
+        netPrefabs = nets.ToArray();
+        litterPrefabs = litter.ToArray();
+        Debug.Log($"FishTargetSystem: Split prefabs — {netPrefabs.Length} nets (NetDialogue), {litterPrefabs.Length} litter (PollutionDialogue).");
     }
 
     // ─────────────────────────────────────────────────────────────────────
@@ -345,13 +363,29 @@ public class FishTargetSystem : MonoBehaviour
 
     private void SpawnTrap()
     {
+        // Ensure the player sees both dialogue types across the 3 traps:
+        //   Trap #1 (score 5) → fishing net  → NetDialogue
+        //   Trap #2 (score 7) → litter       → PollutionDialogue
+        //   Trap #3 (score 9) → random
+        bool spawnNet;
+        if (trapSpawnCount == 0)
+            spawnNet = true;                   // first trap → net → NetDialogue
+        else if (trapSpawnCount == 1)
+            spawnNet = false;                  // second trap → litter → PollutionDialogue
+        else
+            spawnNet = Random.value > 0.5f;    // third+ → random mix
+
+        // Pick from the correct prefab pool
+        GameObject[] pool = spawnNet ? netPrefabs : litterPrefabs;
+        // If desired pool is empty, fall back to the other pool
+        if (pool == null || pool.Length == 0)
+            pool = spawnNet ? litterPrefabs : netPrefabs;
+
         GameObject trap;
 
-        if (resolvedTrapPrefabs != null && resolvedTrapPrefabs.Length > 0)
+        if (pool != null && pool.Length > 0)
         {
-            // Pick a random prefab from the resolved list
-            GameObject prefab = resolvedTrapPrefabs[Random.Range(0, resolvedTrapPrefabs.Length)];
-
+            GameObject prefab = pool[Random.Range(0, pool.Length)];
             Vector3 spawnPos = GetTrapSpawnPosition();
 
             Quaternion spawnRot;
@@ -366,13 +400,15 @@ public class FishTargetSystem : MonoBehaviour
         }
         else
         {
-            // Fallback: create a visible primitive so the feature still works
+            // Fallback: create a visible primitive
             trap = CreateFallbackTrap();
             Debug.Log($"FishTargetSystem: Spawned fallback trap at {trap.transform.position}");
         }
 
-        // Ensure clickable component exists for the -3 penalty
-        EnsureClickableComponent(trap);
+        // Assign clickable based on what was actually spawned:
+        // nets → MarineDebrisClickable (NetDialogue), everything else → MarineLitterClickable (PollutionDialogue)
+        bool isNet = trap.CompareTag("FishNet");
+        AssignClickableType(trap, isNet);
 
         // Ensure collider exists
         if (trap.GetComponent<Collider>() == null)
@@ -381,6 +417,9 @@ public class FishTargetSystem : MonoBehaviour
         // Lock onto it immediately
         lockedTarget = trap;
         isMisleading = true;
+        trapSpawnCount++;
+
+        Debug.Log($"FishTargetSystem: Trap #{trapSpawnCount} is {(isNet ? "NET (NetDialogue)" : "LITTER (PollutionDialogue)")}");
     }
 
     private Vector3 GetTrapSpawnPosition()
@@ -400,22 +439,42 @@ public class FishTargetSystem : MonoBehaviour
             + Vector3.up * verticalOffset;
     }
 
-    private void EnsureClickableComponent(GameObject trap)
+    /// <summary>
+    /// Assigns the correct clickable component to a trap:
+    ///   asDebris=true  → MarineDebrisClickable → triggers NetDialogue (fishing nets only)
+    ///   asDebris=false → MarineLitterClickable  → triggers PollutionDialogue (all other litter)
+    /// Removes any existing clickable of the wrong type first.
+    /// </summary>
+    private void AssignClickableType(GameObject trap, bool asDebris)
     {
-        // Already has one?
-        if (trap.GetComponent<MarineDebrisClickable>() != null) return;
-        if (trap.GetComponent<MarineLitterClickable>() != null) return;
+        if (asDebris)
+        {
+            // Remove any existing litter clickable (from prefab)
+            MarineLitterClickable existingLitter = trap.GetComponent<MarineLitterClickable>();
+            if (existingLitter == null) existingLitter = trap.GetComponentInChildren<MarineLitterClickable>();
+            if (existingLitter != null) Destroy(existingLitter);
 
-        // Check children too (some prefabs have the component on a child)
-        if (trap.GetComponentInChildren<MarineDebrisClickable>() != null) return;
-        if (trap.GetComponentInChildren<MarineLitterClickable>() != null) return;
-
-        // Add one — nets get debris, everything else gets litter
-        bool isNet = trap.name.ToLower().Contains("net");
-        if (isNet)
-            trap.AddComponent<MarineDebrisClickable>();
+            // Add debris clickable if not already present
+            if (trap.GetComponent<MarineDebrisClickable>() == null
+                && trap.GetComponentInChildren<MarineDebrisClickable>() == null)
+            {
+                trap.AddComponent<MarineDebrisClickable>();
+            }
+        }
         else
-            trap.AddComponent<MarineLitterClickable>();
+        {
+            // Remove any existing debris clickable (from prefab)
+            MarineDebrisClickable existingDebris = trap.GetComponent<MarineDebrisClickable>();
+            if (existingDebris == null) existingDebris = trap.GetComponentInChildren<MarineDebrisClickable>();
+            if (existingDebris != null) Destroy(existingDebris);
+
+            // Add litter clickable if not already present
+            if (trap.GetComponent<MarineLitterClickable>() == null
+                && trap.GetComponentInChildren<MarineLitterClickable>() == null)
+            {
+                trap.AddComponent<MarineLitterClickable>();
+            }
+        }
     }
 
     /// <summary>

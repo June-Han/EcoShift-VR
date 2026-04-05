@@ -10,8 +10,8 @@ public class MarineDebrisClickable : MonoBehaviour
 
     void Start()
     {
-        // Find the GameObject in the scene named exactly "PollutionDialogue"
-        GameObject dialogueObj = GameObject.Find("Dialogues/DebrisDialogue");
+        // Find the NetDialogue (only triggered by fishing net interactions)
+        GameObject dialogueObj = GameObject.Find("Dialogues/NetDialogue");
 
         // If we found it, grab the DialogueTrigger script off of it!
         if (dialogueObj != null)
@@ -20,7 +20,7 @@ public class MarineDebrisClickable : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Could not find the PollutionDialogue in the scene!");
+            Debug.LogWarning("MarineDebrisClickable: Could not find Dialogues/NetDialogue in the scene!");
         }
     }
 
