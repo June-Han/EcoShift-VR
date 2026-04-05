@@ -29,6 +29,7 @@ public class VRFader : MonoBehaviour
         StartCoroutine(FadeRoutine(1, 0));
     }
 
+
     public void FadeOutToNewScene()
     {
         StartCoroutine(FadeRoutine(0, 1));

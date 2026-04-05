@@ -21,7 +21,7 @@ public class SharkSceneChanger : MonoBehaviour
         // Check if the object entering the box is the player
         if (other.CompareTag("Player") && sceneChanger != null) 
         {
-            sceneChanger.LoadSharkThreatScene();
+            sceneChanger.StartCoroutine(sceneChanger.LoadSharkThreatScene());
         }
     }
 }
