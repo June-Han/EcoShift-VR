@@ -683,10 +683,6 @@ MonoBehaviour:
   - "Congrats! You\u2019ve found enough food.\r\n"
   - "Fun fact: Blue Sharks are one of the greatest travellers in the ocean \u2014
     a single shark can migrate over 9,000 kilometres across the Atlantic!\r\n"
-  - 'Yet despite their range, an estimated 20 million Blue Sharks are killed each
-    year, mostly as bycatch.
-
-'
   - Let's explore the area. Search for a cave marked by luminescence at the entrance.
     Enter the cave and let's see where it leads.
   triggerOnce: 1
@@ -3714,7 +3710,10 @@ MonoBehaviour:
   targetRadius: 12
   viewConeAngle: 45
   scanInterval: 0.15
-  captureDistance: 2
+  retargetDistance: 10
+  captureDistance: 3
+  misleadAtScores: 050000000700000009000000
+  trapSpawnDistance: 6
   triggerAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   arrowYOffset: 0.5
   obstacleMask:
@@ -3787,9 +3786,10 @@ MonoBehaviour:
     often entangled in longlines and drift nets set for tuna and swordfish.
 
 '
-  - "Interacting with ghost nets often left blue sharks with injuries that often
-    leads to death.  \n\nHeavy points will be deducted as penalty. Reaching less
-    than 0 will result in a Game Over!]"
+  - 'Interacting with ghost nets often left blue sharks with injuries that often
+    leads to death.  '
+  - Heavy points will be deducted as penalty. Reaching less than 0 will result in
+    a Game Over!
   triggerOnce: 0
   triggerOnStart: 0
   onDialogueFinished:
@@ -6768,11 +6768,13 @@ MonoBehaviour:
   dialogueManager: {fileID: 583518376}
   sentences:
   - "Careful! Blue Sharks have been found with microplastics and heavy metals like
-    mercury accumulated in their tissue. As a top predator, toxins biomagnify through
-    every level of the food chain \u2014 eventually reaching humans who consume seafood.\r\n"
-  - Blue sharks are increasingly ingesting ocean litter, including plastics, due
-    to their curious nature and role as opportunistic predators. This leads to digestive
-    damage, starvation and disruption shark's metabolism and reproductive functions.
+    mercury accumulated in their tissue. \r\n"
+  - "As a top predator, toxins biomagnify through every level of the food chain \u2014
+    eventually reaching humans who consume seafood."
+  - 'Blue sharks are increasingly ingesting ocean litter, including plastics, due
+    to their curious nature and role as opportunistic predators. '
+  - This leads to digestive damage, starvation and disruption shark's metabolism
+    and reproductive functions.
   - Heavy points will be deducted as penalty. Reaching less than 0 will result in
     a Game Over!
   triggerOnce: 0
