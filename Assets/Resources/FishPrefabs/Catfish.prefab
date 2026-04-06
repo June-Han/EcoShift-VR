@@ -72,6 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishClickable
   firstClickDialogue: {fileID: 0}
+  chompSound: {fileID: 8300000, guid: 87668af91b2e482419358d94ce27ff9c, type: 3}
+  chompVolume: 0.8
 --- !u!95 &5796526579981365854
 Animator:
   serializedVersion: 7

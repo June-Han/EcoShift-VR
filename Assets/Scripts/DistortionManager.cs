@@ -12,8 +12,8 @@ public class DistortionManager : MonoBehaviour
     public Volume postProcessVolume;
 
     [Header("Vignette Settings")]
-    public float vignetteStrength = 8f;
-    public float duration = 4.0f;
+    public float vignetteStrength = 4f;
+    public float duration = 3.0f;
     public Color vignetteColor = Color.red; // red feels more alarming
 
     private Vignette vignette;

@@ -69,8 +69,13 @@ public class FishTargetSystem : MonoBehaviour
     private bool isMisleading;
     private bool pendingMislead;               // set by the score event, consumed by Update
     private GameObject[] resolvedTrapPrefabs;   // cached at Start
+
     private GameObject[] netPrefabs;            // subset: tagged "FishNet" → triggers NetDialogue
+
     private GameObject[] litterPrefabs;         // subset: non-net → triggers PollutionDialogue
+
+    [SerializeField]
+    private GameObject[] fromResources;
     private int trapSpawnCount;                 // tracks how many traps have been spawned
 
     // ─────────────────────────────────────────────────────────────────────
@@ -207,7 +212,7 @@ public class FishTargetSystem : MonoBehaviour
         else
         {
             // Strategy 2: Load from Resources
-            GameObject[] fromResources = Resources.LoadAll<GameObject>("TrashPrefabs");
+            // GameObject[] fromResources = Resources.LoadAll<GameObject>("TrashPrefabs");
             if (fromResources != null && fromResources.Length > 0)
             {
                 resolvedTrapPrefabs = fromResources;

@@ -56,6 +56,10 @@ public class MarineLitterClickable : MonoBehaviour
             ScoreManager.Instance.RemoveScore(3);
         }
 
+        // --- Penalize the internal Cave counter! ---
+        // Subtract 3, but use Mathf.Max to prevent the score from dropping below 0
+        FishClickable.totalFishEatenInScene = Mathf.Max(0, FishClickable.totalFishEatenInScene - 3);
+
         gameObject.SetActive(false);
     }
 }

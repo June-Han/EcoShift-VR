@@ -18,7 +18,7 @@ public class SceneChanger : MonoBehaviour
     [Header("Underwater")]
     [SerializeField] private ParticleSystem breathingBubbles;
 
-    private float fadeTime = 3f;
+    private float fadeTime = 1f;
 
     public void LoadMainScene()
     {

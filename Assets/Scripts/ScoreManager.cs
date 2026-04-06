@@ -29,8 +29,9 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        // Every time a new scene loads, the fresh ScoreManager in that scene 
+        // simply overwrites the global Instance variable and takes control!
+        Instance = this;
     }
 
     void Start()

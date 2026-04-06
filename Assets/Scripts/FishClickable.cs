@@ -6,11 +6,13 @@ public class FishClickable : MonoBehaviour
     public DialogueTrigger firstClickDialogue;
 
     [Tooltip("Chomp sound played when a fish is eaten. If left empty, a procedural chomp is generated automatically.")]
-    public AudioClip chompSound;
+    [SerializeField] public AudioClip chompSound;
 
     [Tooltip("Volume of the chomp sound effect (0–1)")]
     [Range(0f, 1f)]
     public float chompVolume = 0.8f;
+
+    public static int totalFishEatenInScene = 0;
 
     private static bool hasTriggeredDialogue = false; // shared across all fish
     private static AudioClip sharedChompClip;          // generated once, reused by all fish
@@ -30,7 +32,7 @@ public class FishClickable : MonoBehaviour
         // Auto-load chomp clip from Resources if not assigned in Inspector
         if (chompSound == null && sharedChompClip == null)
         {
-            sharedChompClip = Resources.Load<AudioClip>("Audio/shark_crunch");
+            //sharedChompClip = Resources.Load<AudioClip>("Audio/shark_crunch");
             if (sharedChompClip == null)
             {
                 Debug.LogWarning("FishClickable: Could not load 'Resources/Audio/shark_crunch'. Generating procedural chomp instead.");
@@ -55,8 +57,10 @@ public class FishClickable : MonoBehaviour
             hasTriggeredDialogue = true;
         }
 
+        totalFishEatenInScene++;
         ScoreManager.Instance.AddScore();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     /// <summary>

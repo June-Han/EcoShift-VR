@@ -1691,7 +1691,7 @@ MonoBehaviour:
   stretchScaleZ: 700
   scaleSpeed: 100
   boatTarget: {fileID: 0}
-  cinematicHighlightColor: {r: 0.6886792, g: 0.29707733, b: 0, a: 1}
+  cinematicHighlightColor: {r: 0, g: 1, b: 0.8876231, a: 1}
   glowIntensity: 3
 --- !u!114 &225491153
 MonoBehaviour:
