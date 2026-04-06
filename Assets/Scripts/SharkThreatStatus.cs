@@ -450,7 +450,7 @@ public class SharkThreatStatus : MonoBehaviour
         Vector3 sideDirection = Vector3.Cross(Vector3.up, directionToBoat).normalized;
 
         // Removed the + Vector3.up so the camera sits perfectly level with the net instead of above it
-        Vector3 cameraOffset = (sideDirection * 5f) + (-directionToBoat * 1.5f) + (Vector3.down * 0.1f);
+        Vector3 cameraOffset = (sideDirection * 5f) + (-directionToBoat * 1.5f) + (Vector3.down * 0.2f);
         
         // Start the camera at the bottom of the ocean with the net
         transform.position = bottomPos + cameraOffset;

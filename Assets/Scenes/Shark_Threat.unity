@@ -9386,7 +9386,7 @@ MonoBehaviour:
   boatVisuals: {fileID: 583228888}
   netPrefab: {fileID: 5182637499831419748, guid: bb4699be1ce18f34089548de5e91f568, type: 3}
   netDropPoint: {fileID: 607569552}
-  detectionRadius: 50
+  detectionRadius: 95
   netDropCooldown: 3
 --- !u!1001 &2056426966
 PrefabInstance:

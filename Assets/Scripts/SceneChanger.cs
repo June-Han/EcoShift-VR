@@ -22,7 +22,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadMainScene()
     {
-        //Transform player into a Pangolin!
+        //Transform back to default hands
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.ResetToDefaultHands();
 

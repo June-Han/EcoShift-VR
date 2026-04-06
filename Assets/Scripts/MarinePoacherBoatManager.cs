@@ -21,7 +21,7 @@ public class PoacherBoatManager : MonoBehaviour
 
     [Header("Settings")]
     [Tooltip("How close the shark must be for the boat to notice")]
-    [SerializeField] private float detectionRadius = 50f;
+    [SerializeField] private float detectionRadius = 95f;
     
     [Tooltip("Seconds between dropping each net while chasing")]
     [SerializeField] private float netDropCooldown = 3f;
