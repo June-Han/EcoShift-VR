@@ -3101,16 +3101,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueManager: {fileID: 851848416}
   sentences:
+  - "Oh no, it seems like the poacher caught another pangolin\u2026"
   - 'Pangolins are high demand animals on the global black market. They are poached
     for their scales and other body parts for use in traditional medicine in China,
     Vietnam and Africa. There is no scientific evidence of them having any health
     benefits.
 
 '
-  - 'Between 1999 and 2017, there were about 200,000 pangolins involved in illegal
-    trade. The pangolin population is declining at an alarming rate.
-
-'
+  - "Between 1999 and 2017, there were about 200,000 pangolins involved in illegal
+    trade. The pangolin population is declining at an alarming rate. \n"
+  - Thanks for playing! Please fill in the post-experience survey.
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
@@ -4054,15 +4054,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueManager: {fileID: 851848416}
   sentences:
-  - "That\u2019s a burrow! Quick hide!\r\n"
-  - 'Pangolins create deep sleeping burrows with their strong curved claws.
-
-'
-  - 'Other than providing shelter, burrows aerate compact soil and improve water
-    and oxygen flow to plant roots.
-
-'
-  - "Oh no, it seems like the poacher caught another pangolin\u2026"
+  - "That\u2019s a burrow! Pangolins create deep sleeping burrows with their strong
+    curved claws.\n\r\n"
+  - "Other than providing shelter, burrows aerate compact soil and improve water
+    and oxygen flow to plant roots. \n"
+  - 'Quick! Hide in the burrow! '
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
