@@ -22,6 +22,38 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadMainScene()
     {
+        StartCoroutine(StartLoadMainScene());
+    }
+
+    public IEnumerator StartLoadMainScene()
+    {
+         // Create the VR-Safe Blackout Fader
+        GameObject fader = CreateVRFader();
+        Image fadeImage = fader.GetComponentInChildren<Image>();
+
+        // Fade to black over specified seconds
+        float elapsed = 0f;
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, elapsed / fadeTime);
+            yield return null; // Pauses here until the next frame
+        }
+
+        // Load the scene ASYNCHRONOUSLY and wait for it to finish
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main_Scene");
+
+        if (asyncLoad == null)
+        {
+            Debug.LogError("FADER CRASH: Unity cannot find 'Main_Scene'! Please add it to File > Build Settings.");
+            yield break; // Safely exit the coroutine so it doesn't freeze the game
+        }
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null; // Wait here until the new scene is 100% loaded
+        }
+
         //Transform back to default hands
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.ResetToDefaultHands();
@@ -46,7 +78,19 @@ public class SceneChanger : MonoBehaviour
         //For controller mapping resets
         WakeUpInputs();
 
-        SceneManager.LoadScene("Main_Scene");
+        elapsed = 0f;
+        while (elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            // Subtract from 1 to go from Black (1) to Clear (0)
+            fadeImage.color = new Color(0, 0, 0, 1f - (elapsed / fadeTime));
+            yield return null;
+        }
+
+        // Destroy the fader completely so it doesn't block future UI clicks!
+        Destroy(fader);
+
+        //SceneManager.LoadScene("Main_Scene");
     }
 
     public void LoadTerrestrialScene()
@@ -72,7 +116,7 @@ public class SceneChanger : MonoBehaviour
         }
 
         // Load the scene ASYNCHRONOUSLY and wait for it to finish
-        Debug.Log("FADER: 2. Screen is black. Loading Marine Scene asynchronously...");
+        Debug.Log("FADER: 2. Screen is black. Loading Terrestrial Scene asynchronously...");
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Pangolin_FoodSearch");
 
         if (asyncLoad == null)

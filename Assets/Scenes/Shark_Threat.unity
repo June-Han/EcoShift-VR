@@ -1210,8 +1210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DistortionManager
   postProcessVolume: {fileID: 61847660}
-  vignetteStrength: 4
-  duration: 3
+  vignetteStrength: 2
+  duration: 2
   vignetteColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &317089562
 Transform:

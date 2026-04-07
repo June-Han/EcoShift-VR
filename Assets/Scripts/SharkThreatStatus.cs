@@ -409,10 +409,13 @@ public class SharkThreatStatus : MonoBehaviour
         float seabedHeight = 0f; // Default fallback height
         
         // Start our measurement at the surface, directly above where the player died
-        Vector3 rayStart = new Vector3(deathPos.x, surfaceHeightY, deathPos.z);
+        // We add +1f to Y just in case the player's center is slightly clipping into the mud.
+        // Vector3 rayStart = new Vector3(deathPos.x, surfaceHeightY, deathPos.z);
+        Vector3 rayStart = new Vector3(deathPos.x, deathPos.y + 1f, deathPos.z);
         
         // Shoot an invisible laser straight down. If it hits something, record that Y height!
-        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, surfaceHeightY + 100f))
+        //if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, surfaceHeightY + 100f))
+        if (Physics.Raycast(rayStart, Vector3.down, out RaycastHit hit, 100f))
         {
             seabedHeight = hit.point.y;
         }
@@ -437,6 +440,16 @@ public class SharkThreatStatus : MonoBehaviour
             Rigidbody netRb = cinematicNet.GetComponent<Rigidbody>();
             if (netRb != null) { netRb.isKinematic = true; netRb.useGravity = false; }
         }
+        // // ---  THE SHARK SPAWNING ---
+        // if (dummyPlayerSharkPrefab != null)
+        // {
+        //     dummyShark = Instantiate(dummyPlayerSharkPrefab, netCenter, transform.rotation);
+            
+        //     MonoBehaviour[] allScripts = dummyShark.GetComponents<MonoBehaviour>();
+        //     foreach (var script in allScripts) { if (script != this) script.enabled = false; }
+            
+        //     ApplyCinematicGlow(dummyShark);
+        // }
 
         // ==========================================
         //  POSITION THE VR CAMERA (SIDE PROFILE)
@@ -499,7 +512,7 @@ public class SharkThreatStatus : MonoBehaviour
                 }
 
                 // Update the magnetic center position
-                Vector3 currentNetCenter = cinematicNet.transform.position + (Vector3.up * 2f);
+                Vector3 currentNetCenter = cinematicNet.transform.position + netCenterOffset; //(Vector3.up * 2f); //currently netCenterOffset = (Vector3.up * 1.5f);
 
                 // Lock Dummy Shark inside the net
                 // if (dummyShark != null)
