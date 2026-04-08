@@ -73,7 +73,7 @@ public class SceneChanger : MonoBehaviour
         LivesUI lui = FindFirstObjectByType<LivesUI>();
         if (lui != null) lui.gameObject.SetActive(false); 
 
-        WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
+        WakeUpGameplaySystems(true, 1.8f);
 
         //For controller mapping resets
         WakeUpInputs();
@@ -136,6 +136,14 @@ public class SceneChanger : MonoBehaviour
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = false;
+
+        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
+        if (waterClamp != null) waterClamp.enabled = false;
+        
+        if (breathingBubbles != null)
+        {
+            breathingBubbles.gameObject.SetActive(false);
+        }
 
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
 
@@ -269,6 +277,14 @@ public class SceneChanger : MonoBehaviour
 
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = false;
+
+        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
+        if (waterClamp != null) waterClamp.enabled = false;
+        
+        if (breathingBubbles != null)
+        {
+            breathingBubbles.gameObject.SetActive(false);
+        }
 
         WakeUpGameplaySystems(true, TerrestrialXRCameraOffset);
         WakeUpInputs();

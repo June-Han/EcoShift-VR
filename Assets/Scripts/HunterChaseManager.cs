@@ -36,6 +36,8 @@ public class HunterChaseManager : MonoBehaviour
     public float heartbeatNearInterval = 0.4f;  // fast when close
     private float heartbeatTimer = 0f;
 
+    private SceneChanger sceneChanger;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -46,6 +48,8 @@ public class HunterChaseManager : MonoBehaviour
 
     void Start()
     {
+        sceneChanger = FindFirstObjectByType<SceneChanger>();
+
         // Find timer text
         if (timerText == null)
         {
@@ -174,6 +178,7 @@ public class HunterChaseManager : MonoBehaviour
         {
             hunter.TriggerShoot();
             failDialogue.TriggerDialogue();
+            sceneChanger.LoadMainScene();
         }
     }
 
