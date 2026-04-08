@@ -95,6 +95,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0960dff34d3becc47b997b501854c0fb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6370862052313862779}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0960dff34d3becc47b997b501854c0fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8060122223315066341}
   m_SourcePrefab: {fileID: 100100000, guid: 0960dff34d3becc47b997b501854c0fb, type: 3}
 --- !u!1 &6824661712723265811 stripped
 GameObject:
@@ -123,3 +126,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2881582441081531805, guid: 71acf467624864f448520caf1b4c8a24, type: 3}
+--- !u!114 &-8060122223315066341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824661712723265811}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.6156863, b: 1, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
