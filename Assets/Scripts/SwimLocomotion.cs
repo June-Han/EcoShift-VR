@@ -44,6 +44,11 @@ public class SwimLocomotion : MonoBehaviour
 
     private CharacterController characterController;
 
+    // Max Water Height of the environment
+    [Header("Water Settings")]
+    [Tooltip("The highest Y-coordinate the player's head can go.")]
+    public float maxWaterHeight = 30f; 
+
     // This flag lets SceneChanger turn swimming on/off
     [Header("State")]
     public bool isActive = false;
@@ -131,6 +136,13 @@ public class SwimLocomotion : MonoBehaviour
             currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, drag * dt);
             if (currentVelocity.magnitude < stopThreshold)
                 currentVelocity = Vector3.zero;
+        }
+
+        // --- THE MOMENTUM KILLER ---
+        // If the player is touching the surface, do not let upward momentum build up!
+        if (headTransform.position.y >= maxWaterHeight && currentVelocity.y > 0f)
+        {
+            currentVelocity.y = 0f; 
         }
 
         // --- APPLY MOVEMENT ---

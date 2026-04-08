@@ -8,6 +8,7 @@ public class WaterClamp : MonoBehaviour
 
     [Tooltip("Reference to the player's Main Camera.")]
     public Transform xrCamera;
+    private CharacterController cc;
 
     private void Start()
     {
@@ -15,6 +16,8 @@ public class WaterClamp : MonoBehaviour
         {
             xrCamera = Camera.main.transform;
         }
+        // Grab the controller
+        cc = GetComponent<CharacterController>();
     }
 
     private void LateUpdate()
@@ -27,12 +30,21 @@ public class WaterClamp : MonoBehaviour
             // Calculate exactly how far above the water they are
             float overflow = xrCamera.position.y - maxWaterHeight;
 
-            // Shove the entire XR Origin down by that exact amount
-            transform.position = new Vector3(
-                transform.position.x, 
-                transform.position.y - overflow, 
-                transform.position.z
-            );
+            if (cc != null)
+            {
+                // Push the rig down using Unity's safe physics method
+                cc.Move(Vector3.down * overflow);
+            }
+            else
+            {
+                //Shove the entire XR Origin down by that exact amount (Fallback)
+                transform.position = new Vector3(
+                    transform.position.x, 
+                    transform.position.y - overflow, 
+                    transform.position.z
+                );
+            }
         }
+            
     }
 }
