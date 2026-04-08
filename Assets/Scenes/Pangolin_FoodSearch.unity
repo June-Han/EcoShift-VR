@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_Fog: 1
+  m_FogColor: {r: 0.7411765, g: 0.8000001, b: 0.8196079, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.03
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1408388145}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -813,9 +813,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 27367237}
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 27367236}
     - targetCorrespondingSourceObject: {fileID: 137049670714888532, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
@@ -1496,20 +1493,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &27367237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27367231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &28340029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11620,9 +11603,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 290738197}
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 290738196}
     - targetCorrespondingSourceObject: {fileID: 137049670714888532, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
@@ -12303,20 +12283,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &290738197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290738191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &291954482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16263,20 +16229,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &416895197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &417552940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17671,20 +17623,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &469619108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &470379387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17869,6 +17807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1318647145}
     m_Modifications:
+    - target: {fileID: 259999026082206986, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3865694473006042366, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       propertyPath: m_Name
       value: Insect (12)
@@ -17937,9 +17879,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 473988131}
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 473988130}
@@ -18622,20 +18561,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &473988131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473988125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &475318556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27263,9 +27188,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 753928643}
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 753928642}
     - targetCorrespondingSourceObject: {fileID: 137049670714888532, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
@@ -27946,20 +27868,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &753928643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753928637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &758895075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30830,20 +30738,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &852075305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &853393498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35650,20 +35544,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1024479414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1024713601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36180,9 +36060,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1036277145}
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1036277144}
@@ -36865,20 +36742,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1036277145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036277139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1040935689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41673,9 +41536,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1181916993}
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1181916992}
     - targetCorrespondingSourceObject: {fileID: 137049670714888532, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
@@ -42356,20 +42216,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1181916993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181916987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1185687395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44292,20 +44138,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1233655996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1236238498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46958,20 +46790,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1306369508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!1 &1308714666
 GameObject:
   m_ObjectHideFlags: 0
@@ -51322,20 +51140,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1432279001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1433237255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52617,6 +52421,7 @@ MonoBehaviour:
   maxScore: 10
   scoreText: {fileID: 0}
   gameCompleteDialogue: {fileID: 622792525}
+  gameOverDialogue: {fileID: 0}
 --- !u!4 &1469492299
 Transform:
   m_ObjectHideFlags: 0
@@ -54642,20 +54447,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1540384758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1540761675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55966,9 +55757,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1576326999}
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1576326998}
     - targetCorrespondingSourceObject: {fileID: 137049670714888532, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
@@ -56649,20 +56437,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1576326999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576326993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1577111176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57089,20 +56863,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1608253343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1610825572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62717,20 +62477,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1814059913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1814691507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63729,9 +63475,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5469411714544642976, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1826055236}
-    - targetCorrespondingSourceObject: {fileID: 5469411714544642976, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1826055235}
     - targetCorrespondingSourceObject: {fileID: 1010300460994790384, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -63961,9 +63704,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6935875636185863932, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1257493044}
-    - targetCorrespondingSourceObject: {fileID: 2230900115049768240, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 852075305}
     - targetCorrespondingSourceObject: {fileID: 2230900115049768240, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 852075304}
@@ -64197,9 +63937,6 @@ PrefabInstance:
       addedObject: {fileID: 493594367}
     - targetCorrespondingSourceObject: {fileID: 8755123635906512049, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 469619108}
-    - targetCorrespondingSourceObject: {fileID: 8755123635906512049, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 469619107}
     - targetCorrespondingSourceObject: {fileID: 4351177199770709217, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -64429,9 +64166,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5919449899278776813, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1979681367}
-    - targetCorrespondingSourceObject: {fileID: 3718172423094883101, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1432279001}
     - targetCorrespondingSourceObject: {fileID: 3718172423094883101, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1432279000}
@@ -64665,9 +64399,6 @@ PrefabInstance:
       addedObject: {fileID: 689758982}
     - targetCorrespondingSourceObject: {fileID: 828435415805472042, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 416895197}
-    - targetCorrespondingSourceObject: {fileID: 828435415805472042, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 416895196}
     - targetCorrespondingSourceObject: {fileID: 5664753778704319866, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -64897,9 +64628,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2367027817786249334, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 731690912}
-    - targetCorrespondingSourceObject: {fileID: 3177909121299319997, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1306369508}
     - targetCorrespondingSourceObject: {fileID: 3177909121299319997, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1306369507}
@@ -65133,9 +64861,6 @@ PrefabInstance:
       addedObject: {fileID: 1375969416}
     - targetCorrespondingSourceObject: {fileID: 4863811403017088811, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1814059913}
-    - targetCorrespondingSourceObject: {fileID: 4863811403017088811, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1814059912}
     - targetCorrespondingSourceObject: {fileID: 476735738794919803, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -65365,9 +65090,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7555303422455304823, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1383486041}
-    - targetCorrespondingSourceObject: {fileID: 4084152117293423036, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1540384758}
     - targetCorrespondingSourceObject: {fileID: 4084152117293423036, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1540384757}
@@ -65601,9 +65323,6 @@ PrefabInstance:
       addedObject: {fileID: 1853902073}
     - targetCorrespondingSourceObject: {fileID: 1561651340030074263, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1233655996}
-    - targetCorrespondingSourceObject: {fileID: 1561651340030074263, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1233655995}
     - targetCorrespondingSourceObject: {fileID: 5786588469069903303, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -65833,9 +65552,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4470516713580880075, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1543220207}
-    - targetCorrespondingSourceObject: {fileID: 1080087408818167066, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1024479414}
     - targetCorrespondingSourceObject: {fileID: 1080087408818167066, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1024479413}
@@ -66069,9 +65785,6 @@ PrefabInstance:
       addedObject: {fileID: 1518959862}
     - targetCorrespondingSourceObject: {fileID: 8350510685494599140, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2039336903}
-    - targetCorrespondingSourceObject: {fileID: 8350510685494599140, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2039336902}
     - targetCorrespondingSourceObject: {fileID: 3891381841160795572, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
@@ -66301,9 +66014,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6360375583371452600, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 568094254}
-    - targetCorrespondingSourceObject: {fileID: 4493340469814525110, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1608253343}
     - targetCorrespondingSourceObject: {fileID: 4493340469814525110, guid: ef1e14e08347443879f24a5c725cfab3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1608253342}
@@ -69126,20 +68836,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1826055236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826055230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!1001 &1828027436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69216,9 +68912,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1828027482}
     - targetCorrespondingSourceObject: {fileID: 4901301643708119300, guid: 34b29856d1620435c87f4a13a02235d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1828027481}
@@ -69901,20 +69594,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &1828027482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828027476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &1830292838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76969,20 +76648,6 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
---- !u!114 &2039336903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826054840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6893f8da32d0c4070906a5e9cf3f9c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
-  firstClickDialogue: {fileID: 0}
-  clickSound: {fileID: 8300000, guid: 69efe418ad1ed49238f34fcd88502054, type: 3}
 --- !u!114 &2042072331
 MonoBehaviour:
   m_ObjectHideFlags: 0

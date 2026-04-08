@@ -89,6 +89,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c76e1dd902d7cfe488a45d500f98d871, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4838470287729946313}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c76e1dd902d7cfe488a45d500f98d871, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8978794592734265404}
+    - targetCorrespondingSourceObject: {fileID: -189091167416563541, guid: c76e1dd902d7cfe488a45d500f98d871, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 259999026082206986}
   m_SourcePrefab: {fileID: 100100000, guid: c76e1dd902d7cfe488a45d500f98d871, type: 3}
 --- !u!1 &3865694473006042366 stripped
 GameObject:
@@ -129,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InsectClickable
   firstClickDialogue: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!114 &4838470287729946313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +210,39 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
+--- !u!114 &8978794592734265404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865694473006042366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8282b6a4971d7e248bcba689845db770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VRHoverOutline
+  outlineComponent: {fileID: 259999026082206986}
+--- !u!1 &4901301643708119300 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -189091167416563541, guid: c76e1dd902d7cfe488a45d500f98d871, type: 3}
+  m_PrefabInstance: {fileID: 4135673855462764975}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &259999026082206986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901301643708119300}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 3
+  outlineColor: {r: 0.97647065, g: 0.40000004, b: 0.078431375, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
