@@ -153,7 +153,7 @@ public class Flock : MonoBehaviour
         NativeArray<float> allUnitsSpeeds = new NativeArray<float>(allUnits.Length, Allocator.TempJob);
         NativeArray<float> neighbourSpeeds = new NativeArray<float>(allUnits.Length, Allocator.TempJob);
         
-        // --- NEW: ARRAYS FOR THE THREADED RAYCASTS ---
+        // --- ARRAYS FOR THE THREADED RAYCASTS ---
         NativeArray<RaycastCommand> raycastCommands = new NativeArray<RaycastCommand>(allUnits.Length, Allocator.TempJob);
         NativeArray<RaycastHit> raycastHits = new NativeArray<RaycastHit>(allUnits.Length, Allocator.TempJob);
 
