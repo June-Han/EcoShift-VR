@@ -73,6 +73,7 @@ public class SceneChanger : MonoBehaviour
         LivesUI lui = FindFirstObjectByType<LivesUI>();
         if (lui != null) lui.gameObject.SetActive(false); 
 
+        Vector3 headOffset = xrOrigin.Camera.transform.localPosition;
         WakeUpGameplaySystems(true, 1.8f);
 
         //For controller mapping resets
