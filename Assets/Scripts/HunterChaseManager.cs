@@ -176,9 +176,17 @@ public class HunterChaseManager : MonoBehaviour
 
         if (hunter != null)
         {
-            hunter.TriggerShoot();
+            hunter.TriggerShoot(true);
             failDialogue.TriggerDialogue();
             sceneChanger.LoadMainScene();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (vignette != null)
+        {
+            vignette.intensity.value = 0f;
         }
     }
 

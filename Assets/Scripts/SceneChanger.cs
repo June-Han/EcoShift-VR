@@ -19,6 +19,11 @@ public class SceneChanger : MonoBehaviour
     [SerializeField] private ParticleSystem breathingBubbles;
 
     private float fadeTime = 1f;
+    private float mainSceneHeight = 2.3f;
+    Vector3 existingHeadOffset;
+
+    // XR Origin reference
+    private Transform xrOrigin;
 
     public void LoadMainScene()
     {
@@ -54,6 +59,12 @@ public class SceneChanger : MonoBehaviour
             yield return null; // Wait here until the new scene is 100% loaded
         }
 
+        xrOrigin = FindXROrigin();
+        if (xrOrigin != null) 
+        {
+            existingHeadOffset = xrOrigin.transform.localPosition;
+        }
+
         //Transform back to default hands
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.ResetToDefaultHands();
@@ -73,8 +84,7 @@ public class SceneChanger : MonoBehaviour
         LivesUI lui = FindFirstObjectByType<LivesUI>();
         if (lui != null) lui.gameObject.SetActive(false); 
 
-        Vector3 headOffset = xrOrigin.Camera.transform.localPosition;
-        WakeUpGameplaySystems(true, 1.8f);
+        WakeUpGameplaySystems(true, mainSceneHeight - existingHeadOffset.y);
 
         //For controller mapping resets
         WakeUpInputs();
@@ -473,4 +483,23 @@ public class SceneChanger : MonoBehaviour
         
         return fader;
     }
+
+    private Transform FindXROrigin()
+    {
+        var xrOriginType = System.Type.GetType("Unity.XR.CoreUtils.XROrigin, Unity.XR.CoreUtils");
+        if (xrOriginType != null)
+        {
+            var xrComp = FindFirstObjectByType(xrOriginType) as Component;
+            if (xrComp != null)
+                return xrComp.transform;
+        }
+
+        GameObject go = GameObject.Find("XR Origin");
+        if (go == null) go = GameObject.Find("XR Origin (XR Rig)");
+        if (go == null) go = GameObject.Find("XROrigin");
+
+        return go != null ? go.transform : null;
+    }
 }
+
+

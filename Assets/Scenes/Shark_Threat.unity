@@ -2044,7 +2044,7 @@ Transform:
   m_GameObject: {fileID: 476830750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44, y: 29.5, z: -24}
+  m_LocalPosition: {x: 44, y: 29.8, z: -24}
   m_LocalScale: {x: 28, y: 3, z: 28}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4975,7 +4975,7 @@ GameObject:
   - component: {fileID: 975239598}
   - component: {fileID: 975239600}
   - component: {fileID: 975239599}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NextHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5013,7 +5013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 1
+  m_overflowMode: 2
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
@@ -5090,7 +5090,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &975239600
@@ -5100,7 +5100,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975239597}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1001 &993718859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7928,15 +7928,43 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 290
       objectReference: {fileID: 0}
+    - target: {fileID: 4237257152133766949, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 131e3e20d87e53742b3021f6ea36271d, type: 2}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_Name
       value: Popup_Panels
       objectReference: {fileID: 0}
     - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274637543463292627, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
+    - target: {fileID: 7461205495695051095, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8139748768306499127, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}

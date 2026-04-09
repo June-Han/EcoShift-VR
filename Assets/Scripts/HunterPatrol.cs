@@ -38,7 +38,7 @@ public class HunterPatrol : MonoBehaviour {
         }
     }
 
-    public void TriggerShoot()
+    public void TriggerShoot(bool isChangingScene = false)
     {
         if (hasShot) return; // prevent double triggering
         
@@ -60,7 +60,11 @@ public class HunterPatrol : MonoBehaviour {
             return;
         }
         
-        StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
+        // ONLY run the local fade if we aren't using the SceneChanger to leave the level!
+        if (!isChangingScene)
+        {
+            StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
+        }
         
     }
     

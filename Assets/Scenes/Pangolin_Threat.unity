@@ -1504,6 +1504,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 131e3e20d87e53742b3021f6ea36271d, type: 2}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5660775149628104760, guid: 131e3e20d87e53742b3021f6ea36271d, type: 2}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_isPreferredWidthDirty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_AutoSizeIterationCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074040505199108971, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_isPreferredHeightDirty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2454316445298909292, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_SpriteState.m_PressedSprite
       value: 
@@ -1544,6 +1572,30 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 131e3e20d87e53742b3021f6ea36271d, type: 2}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -5660775149628104760, guid: 131e3e20d87e53742b3021f6ea36271d, type: 2}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_isPreferredWidthDirty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930029479092847853, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_isPreferredHeightDirty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_Name
       value: Popup_Panels
@@ -1551,6 +1603,18 @@ PrefabInstance:
     - target: {fileID: 5232623421102735563, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6274637543463292627, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e70e4f28dcab0b9429dbd43f37858b58, type: 2}
+    - target: {fileID: 7461205495695051095, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7593284455712902691, guid: 1ae32f47176756b4d874f0f122cdc623, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
