@@ -1665,6 +1665,15 @@ MonoBehaviour:
   TerrestrialXRCameraOffset: 0.3
   MarineXRCameraOffset: 1.15
   breathingBubbles: {fileID: 237891507}
+  menuKillSwitch:
+  - {fileID: 225491147}
+  - {fileID: 225491146}
+  - {fileID: 225491145}
+  - {fileID: 225491144}
+  - {fileID: 225491142}
+  - {fileID: 225491149}
+  - {fileID: 225491152}
+  - {fileID: 225491153}
 --- !u!114 &225491152
 MonoBehaviour:
   m_ObjectHideFlags: 0

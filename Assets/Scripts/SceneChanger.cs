@@ -24,6 +24,10 @@ public class SceneChanger : MonoBehaviour
 
     // XR Origin reference
     private Transform xrOrigin;
+    
+    [Header("Main Menu Lockdown")]
+    [Tooltip("Drag the movement components here (Continuous Move, Snap Turn, Footsteps, etc.) that should be turned OFF in the Main Menu.")]
+    public Behaviour[] menuKillSwitch;
 
     public void LoadMainScene()
     {
@@ -35,6 +39,8 @@ public class SceneChanger : MonoBehaviour
          // Create the VR-Safe Blackout Fader
         GameObject fader = CreateVRFader();
         Image fadeImage = fader.GetComponentInChildren<Image>();
+        // Prefer the assigned playerBody, otherwise fallback to attached component
+        CharacterController cc = GetComponent<CharacterController>();
 
         // Fade to black over specified seconds
         float elapsed = 0f;
@@ -69,6 +75,21 @@ public class SceneChanger : MonoBehaviour
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.ResetToDefaultHands();
 
+        WakeUpGameplaySystems(true, mainSceneHeight); //- existingHeadOffset.y
+
+        //For controller mapping resets
+        WakeUpInputs();
+
+        // Find the player's physical body and disable it
+        if (cc != null) cc.enabled = false;
+        // TRIGGER THE KILL SWITCH: Force all assigned locomotion scripts OFF
+        foreach (Behaviour script in menuKillSwitch)
+        {
+            if (script != null) script.enabled = false;
+        }
+
+        Debug.Log("Entered main scene: CharacterController and all movement scripts aggressively locked OFF.");
+
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = false;
 
@@ -81,13 +102,13 @@ public class SceneChanger : MonoBehaviour
             sharkThreatStatus.enabled = false;
         }
 
+        if (breathingBubbles != null)
+        {
+            breathingBubbles.gameObject.SetActive(false);
+        }
+
         LivesUI lui = FindFirstObjectByType<LivesUI>();
         if (lui != null) lui.gameObject.SetActive(false); 
-
-        WakeUpGameplaySystems(true, mainSceneHeight - existingHeadOffset.y);
-
-        //For controller mapping resets
-        WakeUpInputs();
 
         elapsed = 0f;
         while (elapsed < fadeTime)
@@ -101,7 +122,6 @@ public class SceneChanger : MonoBehaviour
         // Destroy the fader completely so it doesn't block future UI clicks!
         Destroy(fader);
 
-        //SceneManager.LoadScene("Main_Scene");
     }
 
     public void LoadTerrestrialScene()
