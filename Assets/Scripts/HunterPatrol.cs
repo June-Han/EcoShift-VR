@@ -85,7 +85,8 @@ public class HunterPatrol : MonoBehaviour {
     
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneChanger.LoadMainScene();
     }
 
     private void OnDrawGizmos()

@@ -150,23 +150,23 @@ public class HunterChaseManager : MonoBehaviour
     }
 
     void UpdateHeartbeat(float distance)
-{
-    if (heartbeatClip == null || heartbeatSource == null) return;
-
-    heartbeatTimer -= Time.deltaTime;
-
-    if (heartbeatTimer <= 0f)
     {
-        // Calculate interval and volume based on distance
-        float t = 1f - Mathf.InverseLerp(vignetteDangerDistance, vignetteNearDistance, distance);
-        float interval = Mathf.Lerp(heartbeatFarInterval, heartbeatNearInterval, t);
-        float volume = Mathf.Lerp(0.2f, 1.0f, t);
+        if (heartbeatClip == null || heartbeatSource == null) return;
 
-        heartbeatSource.volume = volume;
-        heartbeatSource.PlayOneShot(heartbeatClip);
-        heartbeatTimer = interval;
+        heartbeatTimer -= Time.deltaTime;
+
+        if (heartbeatTimer <= 0f)
+        {
+            // Calculate interval and volume based on distance
+            float t = 1f - Mathf.InverseLerp(vignetteDangerDistance, vignetteNearDistance, distance);
+            float interval = Mathf.Lerp(heartbeatFarInterval, heartbeatNearInterval, t);
+            float volume = Mathf.Lerp(0.2f, 1.0f, t);
+
+            heartbeatSource.volume = volume;
+            heartbeatSource.PlayOneShot(heartbeatClip);
+            heartbeatTimer = interval;
+        }
     }
-}
 
     void OnTimerEnd()
     {
