@@ -16,6 +16,7 @@ public class HunterPatrol : MonoBehaviour {
     private GameObject player;
     private float detectionRadius = 3.5f;
     private bool hasShot = false;
+    private SceneChanger sceneChanger;
 
     void Start() {
         animator = GetComponent<Animator>();
