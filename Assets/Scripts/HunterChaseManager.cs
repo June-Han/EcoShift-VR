@@ -181,6 +181,14 @@ public class HunterChaseManager : MonoBehaviour
             sceneChanger.LoadMainScene();
         }
     }
+    
+    public void TimerEnd()
+    {
+        timerRunning = false;
+        if (heartbeatSource != null) heartbeatSource.Stop();
+        if (vignette != null) vignette.intensity.value = 0f;
+        
+    }
 
     private void OnDestroy()
     {

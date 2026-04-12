@@ -53,6 +53,7 @@ public class HunterPatrol : MonoBehaviour {
         animator.SetTrigger("Shoot");
         hasShot = true;
         AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
+        HunterChaseManager.Instance.TimerEnd();
         
         Camera mainCamera = Camera.main;
         if (mainCamera == null)

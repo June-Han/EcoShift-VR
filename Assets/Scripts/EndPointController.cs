@@ -74,6 +74,7 @@ public class EndPointController : MonoBehaviour
     private IEnumerator FadeAndTeleport(Camera camera, float fadeToDuration, float fadeFromDuration)
     {
         float timer = 0f;
+        HunterChaseManager.Instance.TimerEnd();
         
         // Create fade overlay
         GameObject fadeOverlay = new GameObject("FadeOverlay");
