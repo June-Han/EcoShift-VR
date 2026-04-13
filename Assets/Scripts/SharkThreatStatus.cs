@@ -70,56 +70,8 @@ public class SharkThreatStatus : MonoBehaviour
 
     private SceneChanger sceneChanger;
 
-    //void Start()
-    // private void Start()
-    // {
-    //     currentLives = maxLives;
-
-    //     // Auto-find LivesUI
-    //     if (livesUI == null)
-    //         livesUI = FindFirstObjectByType<LivesUI>();
-
-    //     if (livesUI == null)
-    //     {
-    //         foreach (LivesUI lui in Resources.FindObjectsOfTypeAll<LivesUI>())
-    //         {
-    //             if (lui.gameObject.scene.isLoaded || lui.gameObject.scene.name != null)
-    //             {
-    //                 livesUI = lui;
-    //                 if (!lui.gameObject.activeInHierarchy)
-    //                     lui.gameObject.SetActive(true);
-    //                 break;
-    //             }
-    //         }
-    //     }
-        
-    //     if (sceneChanger== null)
-    //         sceneChanger = FindFirstObjectByType<SceneChanger>();
-        
-    //     if (sceneChanger == null)
-    //     {
-    //         Debug.LogWarning("Could not find SceneChanger in the scene! Is the XR Origin loaded?");
-    //     }
-
-    //     // Create a timer on the Lives Canvas if not assigned
-    //     if (timerText == null && livesUI != null)
-    //     {
-    //         timerText = CreateTimerOnLivesCanvas();
-    //     }
-
-    //     if (survivedDialogue == null)
-    //         Debug.LogWarning("[SharkThreatStatus] No SurvivedDialogue assigned. Run Tools → EcoShift → Create Shark End-Game Dialogues.");
-    //     if (gameOverDialogue == null)
-    //         Debug.LogWarning("[SharkThreatStatus] No GameOverDialogue assigned. Run Tools → EcoShift → Create Shark End-Game Dialogues.");
-
-    //     if (livesUI == null)
-    //         Debug.LogWarning("[SharkThreatStatus] No LivesUI found.");
-    //     if (timerText == null)
-    //         Debug.LogWarning("[SharkThreatStatus] No timer text created.");
-    // }
-
     // Awake runs exactly once when the XR Rig is born. 
-    // Grab all our references so they are ready before anything else happens!
+    // Grab all references so they are ready before anything else happens!
     private void Awake()
     {
         // Using FindObjectsInactive.Include is the modern, cleanest way to find hidden UI!
