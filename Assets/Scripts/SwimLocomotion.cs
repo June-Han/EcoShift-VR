@@ -60,6 +60,9 @@ public class SwimLocomotion : MonoBehaviour
     // Audio
     private AudioSource ambientSource;
 
+    // Freeze movement during cinematics without killing audio! ---
+    public bool canMove = true;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -102,10 +105,26 @@ public class SwimLocomotion : MonoBehaviour
         float dt = Time.deltaTime;
 
         // --- INPUT ---
-        Vector2 input = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
-        float upInput = swimUpAction != null ? swimUpAction.action.ReadValue<float>() : 0f;
-        float downInput = swimDownAction != null ? swimDownAction.action.ReadValue<float>() : 0f;
-        float sprintInput = sprintAction != null ? sprintAction.action.ReadValue<float>() : 0f;
+        // Vector2 input = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
+        // float upInput = swimUpAction != null ? swimUpAction.action.ReadValue<float>() : 0f;
+        // float downInput = swimDownAction != null ? swimDownAction.action.ReadValue<float>() : 0f;
+        // float sprintInput = sprintAction != null ? sprintAction.action.ReadValue<float>() : 0f;
+
+        // --- INPUT ---
+        Vector2 input = Vector2.zero;
+        float upInput = 0f;
+        float downInput = 0f;
+        float sprintInput = 0f;
+
+        // ONLY read the controllers if the player is allowed to move!
+        // If false, they all remain 0, and the water drag will smoothly bring the shark to a halt.
+        if (canMove)
+        {
+            input = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
+            upInput = swimUpAction != null ? swimUpAction.action.ReadValue<float>() : 0f;
+            downInput = swimDownAction != null ? swimDownAction.action.ReadValue<float>() : 0f;
+            sprintInput = sprintAction != null ? sprintAction.action.ReadValue<float>() : 0f;
+        }
 
         // --- DESIRED DIRECTION ---
         Vector3 headForward = headTransform.forward;

@@ -3741,6 +3741,7 @@ MonoBehaviour:
   onDialogueEnd:
     m_PersistentCalls:
       m_Calls: []
+  advanceDialogueAction: {fileID: -3875704489234743591, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!224 &583518377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4528,7 +4529,7 @@ MonoBehaviour:
   - 'Blue Sharks detect prey using electroreceptors called ampullae of Lorenzini.
     They function like the green arrows which serve to guide you towards potential
     prey. '
-  - Ypu can eat any fish that you see, but be careful what you eat!Continue hunting
+  - You can eat any fish that you see, but be careful what you eat!Continue hunting
     until we get 10 fishes!
   triggerOnce: 1
   triggerOnStart: 0

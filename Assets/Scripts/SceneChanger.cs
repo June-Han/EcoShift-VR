@@ -236,11 +236,21 @@ public class SceneChanger : MonoBehaviour
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.EquipFinsWithScoreUI();
 
+        WakeUpGameplaySystems(false, MarineXRCameraOffset);
+        WakeUpInputs();
+
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
 
         WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
         if (waterClamp != null) waterClamp.enabled = true;
+
+        SharkThreatStatus sharkThreatStatus = FindFirstObjectByType<SharkThreatStatus>();
+        if (sharkThreatStatus != null)
+        {
+            sharkThreatStatus.enabled = false;
+        }
+
         
         if (breathingBubbles != null)
         {
@@ -248,9 +258,9 @@ public class SceneChanger : MonoBehaviour
             breathingBubbles.Play();
         }
 
-        WakeUpGameplaySystems(false, MarineXRCameraOffset);
-        WakeUpInputs();
-
+        LivesUI lui = FindFirstObjectByType<LivesUI>();
+        if (lui != null) lui.gameObject.SetActive(false); 
+        
         Debug.Log("FADER: 4. Shark setup complete. Fading back to clear...");
         // Fade back to clear!
         elapsed = 0f;
@@ -369,8 +379,14 @@ public class SceneChanger : MonoBehaviour
         HandSwapper handSwapper = FindFirstObjectByType<HandSwapper>();
         if (handSwapper != null) handSwapper.EquipFinsWithLivesUI();
 
+        WakeUpGameplaySystems(false, MarineXRCameraOffset);
+        WakeUpInputs();
+
         SwimMotion swimMotion = FindFirstObjectByType<SwimMotion>();
         if (swimMotion != null) swimMotion.isActive = true;
+
+        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
+        if (waterClamp != null) waterClamp.enabled = true;
 
         SharkThreatStatus sharkThreatStatus = FindFirstObjectByType<SharkThreatStatus>();
         if (sharkThreatStatus != null)
@@ -378,17 +394,14 @@ public class SceneChanger : MonoBehaviour
             sharkThreatStatus.enabled = true;
         }
 
-        WaterClamp waterClamp = FindFirstObjectByType<WaterClamp>();
-        if (waterClamp != null) waterClamp.enabled = true;
-
         if (breathingBubbles != null)
         {
             breathingBubbles.gameObject.SetActive(true);
             breathingBubbles.Play();
         }
 
-        WakeUpGameplaySystems(false, MarineXRCameraOffset);
-        WakeUpInputs();
+        LivesUI lui = FindFirstObjectByType<LivesUI>();
+        if (lui != null) lui.gameObject.SetActive(true); 
 
         // Fade back to clear!
         elapsed = 0f;
@@ -445,6 +458,7 @@ public class SceneChanger : MonoBehaviour
             if (swimLocomotion != null)
             {
                 swimLocomotion.isActive = !isTerrestrial;
+                swimLocomotion.canMove = !isTerrestrial;
             }
 
             // These are needed for both scenes
