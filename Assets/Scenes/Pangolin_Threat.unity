@@ -3182,24 +3182,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueManager: {fileID: 2087708557}
   sentences:
-  - "Oh no, it seems like the poacher caught another pangolin\u2026"
   - 'Pangolins are high demand animals on the global black market. They are poached
     for their scales and other body parts for use in traditional medicine in China,
     Vietnam and Africa. There is no scientific evidence of them having any health
     benefits.
 
 '
-  - "Between 1999 and 2017, there were about 200,000 pangolins involved in illegal
-    trade. The pangolin population is declining at an alarming rate. \n"
-  - Thanks for playing! Please fill in the post-experience survey.
+  - Between 1999 and 2017, there were about 200,000 documented pangolins involved
+    in illegal trade. The pangolin population is declining at an alarming rate.
+  - The experience is over. You may remove your headset and speak to the administrators
+    for further instructions. Thank you!
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 508326058}
-        m_TargetAssemblyTypeName: EndPointController, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+      - m_Target: {fileID: 1336596350}
+        m_TargetAssemblyTypeName: HunterPatrol, Assembly-CSharp
+        m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4135,11 +4135,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueManager: {fileID: 2087708557}
   sentences:
-  - "That\u2019s a burrow! Pangolins create deep sleeping burrows with their strong
-    curved claws.\n\r\n"
-  - "Other than providing shelter, burrows aerate compact soil and improve water
-    and oxygen flow to plant roots. \n"
-  - 'Quick! Hide in the burrow! '
+  - "That\u2019s a burrow! Quick hide!\r\n\r\n"
+  - 'Pangolins create deep sleeping burrows with their strong curved claws.
+
+'
+  - 'Other than providing shelter, burrows aerate compact soil and improve water
+    and oxygen flow to plant roots.
+
+    Gun shot sound
+
+'
+  - "Oh no, it seems like the poacher caught another pangolin\u2026\r\n"
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
@@ -4307,7 +4313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   dialogueManager: {fileID: 2087708557}
   sentences:
-  - 'Oh no, it seems like you did not find a burrow. You were shot by the hunter.
+  - 'Oh no, it seems like you did not find a burrow to hide in time.
 
 '
   - 'Pangolins create deep sleeping burrows with their strong curved claws.
@@ -4317,6 +4323,18 @@ MonoBehaviour:
     and oxygen flow to plant roots.
 
 '
+  - 'Pangolins are high demand animals on the global black market. They are poached
+    for their scales and other body parts for use in traditional medicine in China,
+    Vietnam and Africa. There is no scientific evidence of them having any health
+    benefits.
+
+'
+  - 'Between 1999 and 2017, there were about 200,000 documented pangolins involved
+    in illegal trade. The pangolin population is declining at an alarming rate.
+
+'
+  - The experience is over. You may remove your headset and speak to the administrators
+    for further instructions. Thank you!
   triggerOnce: 1
   triggerOnStart: 0
   onDialogueFinished:
