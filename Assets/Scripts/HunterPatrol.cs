@@ -23,6 +23,7 @@ public class HunterPatrol : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false; 
         player = GameObject.FindGameObjectWithTag("Player");
+        sceneChanger = FindFirstObjectByType<SceneChanger>();
     }
 
     void Update() {
@@ -41,8 +42,8 @@ public class HunterPatrol : MonoBehaviour {
 
     public void TriggerShoot(bool isChangingScene = false)
     {
-        if (hasShot) return; // prevent double triggering
-        
+        if (hasShot) return;
+
         agent.enabled = false;
         if (player != null)
         {
@@ -54,19 +55,13 @@ public class HunterPatrol : MonoBehaviour {
         hasShot = true;
         AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
         HunterChaseManager.Instance.TimerEnd();
-        
+
         Camera mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            Debug.LogError("Main Camera not found!");
-            return;
-        }
-        
-        // ONLY run the local fade if we aren't using the SceneChanger to leave the level!
-        if (!isChangingScene)
-        {
-            StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
-        }
+        if (mainCamera == null) return;
+
+        // Always fade & teleport to end room — wire scene load to fire after dialogue
+        failDialogue.onDialogueFinished.AddListener(() => sceneChanger.LoadMainScene());
+        StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
         
     }
     
