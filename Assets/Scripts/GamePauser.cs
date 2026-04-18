@@ -4,6 +4,7 @@ using UnityEngine.Assertions;
 
 public class GamePauser : MonoBehaviour
 {
+    private bool hasTriggered = false;
     private void Awake() 
     {
         Collider col = GetComponent<Collider>();
@@ -12,7 +13,10 @@ public class GamePauser : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasTriggered)
+        {
+            hasTriggered = true;
             HunterChaseManager.Instance.PauseGame();
+        }
     }
 }
