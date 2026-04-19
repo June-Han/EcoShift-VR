@@ -170,15 +170,36 @@ public class HunterChaseManager : MonoBehaviour
 
     void OnTimerEnd()
     {
-        timerRunning = false;
+        // Instantly stop the timer so this doesn't trigger multiple times per frame
+        timerRunning = false; 
+        
+        // Start the Coroutine to handle the dialogue and scene change sequence
+        StartCoroutine(TimerEndSequence());
+    }
+
+    private IEnumerator TimerEndSequence()
+    {
         if (heartbeatSource != null) heartbeatSource.Stop();
         if (vignette != null) vignette.intensity.value = 0f;
 
         if (hunter != null)
         {
+            // Trigger the animation/sound
             hunter.TriggerShoot(true);
-            failDialogue.TriggerDialogue();
-            sceneChanger.LoadMainScene();
+
+            // Wait for the dialogue to finish (if it exists)
+            if (failDialogue != null) 
+            {
+                failDialogue.TriggerDialogue();
+                
+                // Wait for dialogue
+                yield return new WaitUntil(() => DialogueManager.Instance.gameObject.activeInHierarchy == false);
+            }
+            
+            // Finally, after the dialogue is closed, load the main scene
+            if (sceneChanger != null) {
+                sceneChanger.LoadMainScene();
+            }
         }
     }
     

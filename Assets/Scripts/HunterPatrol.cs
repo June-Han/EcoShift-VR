@@ -23,6 +23,7 @@ public class HunterPatrol : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false; 
         player = GameObject.FindGameObjectWithTag("Player");
+        sceneChanger = FindFirstObjectByType<SceneChanger>();
     }
 
     void Update() {
@@ -43,6 +44,7 @@ public class HunterPatrol : MonoBehaviour {
     {
         if (hasShot) return; // prevent double triggering
         
+        hasShot = true;
         agent.enabled = false;
         if (player != null)
         {
@@ -51,9 +53,6 @@ public class HunterPatrol : MonoBehaviour {
         }
         animator.SetBool("IsWalking", false);
         animator.SetTrigger("Shoot");
-        hasShot = true;
-        AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
-        HunterChaseManager.Instance.TimerEnd();
         
         Camera mainCamera = Camera.main;
         if (mainCamera == null)
@@ -61,13 +60,18 @@ public class HunterPatrol : MonoBehaviour {
             Debug.LogError("Main Camera not found!");
             return;
         }
+
+        AudioSource.PlayClipAtPoint(gunShotSound, transform.position);
+        HunterChaseManager.Instance.TimerEnd();
         
         // ONLY run the local fade if we aren't using the SceneChanger to leave the level!
         if (!isChangingScene)
         {
-            StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
-        }
-        
+            if (mainCamera != null)
+            {
+                StartCoroutine(FadeAndTeleport(mainCamera, 1f, 1f));
+            }       
+        }        
     }
     
 
@@ -137,7 +141,13 @@ public class HunterPatrol : MonoBehaviour {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
+            // Disable CC to teleport
+            CharacterController cc = player.GetComponent<CharacterController>();
+            if(cc) cc.enabled = false;
+
             player.transform.position = new Vector3(-100f, -100f, 100f);
+
+            if(cc) cc.enabled = true;
         }
 
         // --- Phase 2: Fade from black (1 -> 0) ---
@@ -157,9 +167,13 @@ public class HunterPatrol : MonoBehaviour {
         transparentColor.a = 0f;
         image.color = transparentColor;
         
-        failDialogue.TriggerDialogue();
+        if (failDialogue != null) {
+            failDialogue.TriggerDialogue();
+            yield return new WaitUntil(() => DialogueManager.Instance.gameObject.activeInHierarchy == false);
+        }
 
         // --- Delete canvas ---
         Destroy(fadeOverlay);
+        RestartScene();
     }
 }

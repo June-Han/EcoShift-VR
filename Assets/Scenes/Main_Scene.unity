@@ -1648,6 +1648,7 @@ MonoBehaviour:
   headTransform: {fileID: 0}
   maxWaterHeight: 30
   isActive: 0
+  canMove: 1
 --- !u!114 &225491151
 MonoBehaviour:
   m_ObjectHideFlags: 0
