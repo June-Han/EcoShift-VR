@@ -97,3 +97,33 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# IDE / editor metadata
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Unity / Burst generated debugging information
+*BurstDebugInformation_DoNotShip*/
+**/*BurstDebugInformation_DoNotShip*/
+
+# OS / temporary files
+Thumbs.db
+Desktop.ini
+*.bak
+*.swp
+*.swo
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local builds / exports
+*.apk
+*.aab
+*.unitypackage
+*.app
